@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour {
     public static bool IsTeleportingPlayer = false;
     public IntroDialogueScript IntroDialogueScript;
 
+    public static bool IsPlayerSpooky = false;
+    public RuntimeAnimatorController DefaultAnimator;
+    public RuntimeAnimatorController SpookyAnimator;
     private Animator _animator;
 
 	void Start () {

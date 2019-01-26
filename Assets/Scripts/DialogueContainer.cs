@@ -49,7 +49,6 @@ public class DialogueContainer : MonoBehaviour {
 
     public IEnumerator UpdateDialogueText(string newDialogueText, bool isObjectItem)
     {
-        Debug.Log(isObjectItem);
         IsDialogueTextLoaded = false;
         _itemDialogueTextComponent.text = string.Empty;
         _dialogueTextComponent.text = string.Empty;

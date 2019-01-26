@@ -11,6 +11,14 @@ TagManager:
   - Option 1
   - Option 2
   - Intro Container
+  - Candle
+  - Spooky Light
+  - Sun
+  - Grayscale Tiles
+  - Grayscale Walls
+  - Default Tiles
+  - Default Walls
+  - Interior Object
   layers:
   - Default
   - TransparentFX
