@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
         IntroDialogueScript = GameObject.FindGameObjectWithTag("Intro Container").GetComponent<IntroDialogueScript>();
 	}
 	
-	void Update () {
+	void FixedUpdate () {
         if (IsCharacterInADialogue == false &&
             IsTeleportingPlayer == false &&
             IntroDialogueScript.IsIntroEnded == true)
