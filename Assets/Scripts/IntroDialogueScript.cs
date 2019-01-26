@@ -12,6 +12,7 @@ public class IntroDialogueScript : MonoBehaviour
     public GameObject DialogueTitle;
 
     private Image _currentDialoguePortrait;
+    private Image _currentDialogueBackground;
     private Text _currentDialogueTextComponent;
     private Text _currentDialogueTitle;
     private Text _optionOne;
@@ -19,9 +20,15 @@ public class IntroDialogueScript : MonoBehaviour
 
     public bool IsDialogueTextLoaded;
 
-    public Sprite DadPortrait;
-    public Sprite MomPortrait;
+    public Sprite DadPortrait_1;
+    public Sprite DadPortrait_2;
+    public Sprite MomPortrait_1;
+    public Sprite MomPortrait_2;
     public Sprite JanePortrait;
+
+    public Sprite DadDialogueBackground;
+    public Sprite MomDialogueBackground;
+    public Sprite JaneDialogueBackground;
 
     List<object[]> DialogueStructure = new List<object[]>();
     private int _currentDialogueIndex = 0;
@@ -30,17 +37,17 @@ public class IntroDialogueScript : MonoBehaviour
     private bool _areOptionsGiven = false;
     private string _currentResponse = string.Empty;
 
-    public object[] Dad_0 = new object[3];
-    public object[] Jane_1 = new object[3];
-    public object[] Dad_2 = new object[3];
-    public object[] Dad_3 = new object[3];
-    public object[] Dad_4 = new object[3];
-    public object[] Jane_5 = new object[4];
-    public object[] Mom_6 = new object[3];
-    public object[] Jane_7 = new object[3];
-    public object[] Dad_8 = new object[3];
-    public object[] Jane_9 = new object[3];
-    public object[] Jane_10 = new object[3];
+    public object[] Dad_0 = new object[4];
+    public object[] Jane_1 = new object[4];
+    public object[] Dad_2 = new object[4];
+    public object[] Dad_3 = new object[4];
+    public object[] Dad_4 = new object[4];
+    public object[] Jane_5 = new object[5];
+    public object[] Mom_6 = new object[4];
+    public object[] Jane_7 = new object[4];
+    public object[] Dad_8 = new object[4];
+    public object[] Jane_9 = new object[4];
+    public object[] Jane_10 = new object[4];
 
     private string _temporaryOptionOneStr = string.Empty;
     private string _temporaryOptionTwoStr = string.Empty;
@@ -51,21 +58,59 @@ public class IntroDialogueScript : MonoBehaviour
 
         _currentDialoguePortrait = DialoguePortrait.GetComponent<Image>();
         _currentDialogueTextComponent = CurrentDialogueText.GetComponent<Text>();
+        _currentDialogueBackground = DialogueBackground.GetComponent<Image>();
         _currentDialogueTitle = DialogueTitle.GetComponent<Text>();
 
-        Dad_0 = new object[] { "Father", DadPortrait, "Well Jane, have you finished your homework for today?" };
-        Jane_1 = new object[] { "Jane", JanePortrait, "No, dad.. I went out after school with some friends." };
-        Dad_2 = new object[] { "Father", DadPortrait, ".. your friends are not like you Jane, you’re wasting time that you could use for studying!" };
-        Dad_3 = new object[] { "Father", DadPortrait, "Otherwise, you’ll never achieve your dream of becoming a doctor.",  "Yes father, I am aware..", "I don’t even want to become a doctor..." };
-        Dad_4 = new object[] { "Father", DadPortrait, "" };
-        Jane_5 = new object[] { "Jane", JanePortrait, "Yes father.." };
-        Mom_6 = new object[] { "Mom", MomPortrait, "Oh light up darling, dad only wants the best for you." };
-        Jane_7 = new object[] { "Jane", JanePortrait, "the best for me.. or the best for you two?" };
-        Dad_8 = new object[] { "Father", DadPortrait, "I will NOT tolerate such insolence in MY house! Go to your room right now young lady!" };
-        Jane_9 = new object[] { "Jane", JanePortrait, "Hmpf!" };
-        Jane_10 = new object[] { "Jane", JanePortrait, "I need to get out of this place.. I feel like I’m suffocating in here.!" };
+        Dad_0 = new object[] { "Father", DadPortrait_1, DadDialogueBackground, "Well Jane, have you finished your homework for today?" };
+        Jane_1 = new object[] { "Jane", JanePortrait, JaneDialogueBackground, "No, dad.. I went out after school with some friends." };
+        Dad_2 = new object[] { "Father", DadPortrait_2, DadDialogueBackground, ".. your friends are not like you Jane, you’re wasting time that you could use for studying!" };
+        Dad_3 = new object[] { "Father", DadPortrait_2, DadDialogueBackground, "Otherwise, you’ll never achieve your dream of becoming a doctor.",  "Yes father, I am aware..", "I don’t even want to become a doctor..." };
+        Dad_4 = new object[] { "Father", DadPortrait_1, DadDialogueBackground, "" };
+        Jane_5 = new object[] { "Jane", JanePortrait, JaneDialogueBackground, "Yes father.." };
+        Mom_6 = new object[] { "Mom", MomPortrait_2, MomDialogueBackground, "Oh light up darling, dad only wants the best for you." };
+        Jane_7 = new object[] { "Jane", JanePortrait, JaneDialogueBackground, "the best for me.. or the best for you two?" };
+        Dad_8 = new object[] { "Father", DadPortrait_2, DadDialogueBackground, "I will NOT tolerate such insolence in MY house! Go to your room right now young lady!" };
+        Jane_9 = new object[] { "Jane", JanePortrait, JaneDialogueBackground, "Hmpf!" };
+        Jane_10 = new object[] { "Jane", JanePortrait, JaneDialogueBackground, "I need to get out of this place.. I feel like I’m suffocating in here.!" };
 
         DialogueStructure = new List<object[]>() { Dad_0, Jane_1, Dad_2, Dad_3, Dad_4, Jane_5, Mom_6, Jane_7, Dad_8, Jane_9, Jane_10 };
+        
+        if (IsIntroEnded == false)
+        {
+            if (_isIntroDisplayed == false)
+            {
+                _currentDialoguePortrait.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+                DialogueBackground.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+
+                UpdateDialogueContainer();
+
+                _isIntroDisplayed = true;
+            }
+        }
+    }
+
+    private IEnumerator ShowOptionsInDialogue(string character, string optionOne, string optionTwo)
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        if (character == "Father" || character == "Mom")
+        {
+            _optionOne.color = new Color(217, 217, 217, 1f);
+            _optionTwo.color = new Color(217, 217, 217, 1);
+        }
+        else if (character == "Jane")
+        {
+            _optionOne.color = new Color(0, 0, 0, 1f);
+            _optionTwo.color = new Color(0, 0, 0, 1f);
+        }
+
+        _temporaryOptionOneStr = optionOne;
+        _temporaryOptionTwoStr = optionTwo;
+
+        _optionOne.text = optionOne;
+        _optionTwo.text = optionTwo;
+
+        _areOptionsGiven = true;
     }
 
     private void UpdateDialogueContainer()
@@ -76,15 +121,36 @@ public class IntroDialogueScript : MonoBehaviour
             {
                 _currentDialogueTitle.text = (string)DialogueStructure[i][0];
                 _currentDialoguePortrait.sprite = (Sprite)DialogueStructure[i][1];
-                if (DialogueStructure[i].Length > 3)
+                _currentDialogueBackground.sprite = (Sprite)DialogueStructure[i][2];
+
+                // This changes the text color when loading different dialogue
+                // boxes that have different color schemes that dont blend well.
+                if ((string)DialogueStructure[i][0] == "Father" || (string)DialogueStructure[i][0] == "Mom")
                 {
-                    _temporaryOptionOneStr = (string)DialogueStructure[i][3];
-                    _temporaryOptionTwoStr = (string)DialogueStructure[i][4];
+                    _currentDialogueTitle.color = new Color(217, 217, 217, 1);
+                    _currentDialogueTextComponent.color = new Color(217, 217, 217, 0.7f);
 
-                    _optionOne.text = (string)DialogueStructure[i][3];
-                    _optionTwo.text = (string)DialogueStructure[i][4];
+                    _optionOne.color = new Color(217, 217, 217, 0.7f);
+                    _optionTwo.color = new Color(217, 217, 217, 0.7f);
+                }
+                else if ((string)DialogueStructure[i][0] == "Jane")
+                {
+                    _currentDialogueTitle.color = new Color(0, 0, 0, 1);
+                    _currentDialogueTextComponent.color = new Color(0, 0, 0, 0.7f);
 
-                    _areOptionsGiven = true;
+                    _optionOne.color = new Color(0, 0, 0, 0.7f);
+                    _optionTwo.color = new Color(0, 0, 0, 0.7f);
+                }
+
+
+                if (DialogueStructure[i].Length > 4)
+                {
+                    StartCoroutine(UpdateDialogueText((string)DialogueStructure[i][3]));
+
+                    StartCoroutine(ShowOptionsInDialogue(
+                        (string)DialogueStructure[i][0],
+                        (string)DialogueStructure[i][4],
+                        (string)DialogueStructure[i][5]));
                 } else
                 {
                     if (_currentResponse != string.Empty
@@ -99,7 +165,7 @@ public class IntroDialogueScript : MonoBehaviour
                         }
                     } else
                     {
-                        StartCoroutine(UpdateDialogueText((string)DialogueStructure[i][2]));
+                        StartCoroutine(UpdateDialogueText((string)DialogueStructure[i][3]));
                     }
                 }
             }
@@ -125,7 +191,7 @@ public class IntroDialogueScript : MonoBehaviour
 
     private void Update()
     {
-        if (_areOptionsGiven)
+        if (_areOptionsGiven && IsDialogueTextLoaded)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -142,7 +208,6 @@ public class IntroDialogueScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _currentDialogueIndex++;
                 UpdateDialogueContainer();
 
                 _optionOne.text = string.Empty;

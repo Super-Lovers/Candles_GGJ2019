@@ -183,9 +183,11 @@ public class DialogueController : MonoBehaviour {
     
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log(DialogueContainerScript.IsDialogueTextLoaded);
         if (DialogueContainerScript.IsDialogueTextLoaded &&
-            Input.GetKeyDown(KeyCode.X))
+            Input.GetKeyDown(KeyCode.Space))
         {
+            _playerAnimator.SetBool("Is Player Idle", true);
             ContinueDialogue();
         }
     }

@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
         IntroDialogueScript = GameObject.FindGameObjectWithTag("Intro Container").GetComponent<IntroDialogueScript>();
-	}
+
+        _animator.SetBool("Is Player Idle", true);
+    }
 	
 	void FixedUpdate () {
         if (IsCharacterInADialogue == false &&
