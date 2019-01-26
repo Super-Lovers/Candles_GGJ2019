@@ -9,6 +9,7 @@ public class DialogueController : MonoBehaviour {
     public string DialogueTitle;
     public string[] DialogueArray;
     private DialogueContainer DialogueContainerScript;
+    public bool IsObjectItem;
 
     // **************************
     // Dialogue Paramteres
@@ -20,7 +21,6 @@ public class DialogueController : MonoBehaviour {
 
     public void ContinueDialogue()
     {
-
         if (CurrentDialogueIndex == DialogueArray.Length)
         {
             DialogueContainerScript.RemoveDialogueBox(gameObject);
@@ -38,23 +38,25 @@ public class DialogueController : MonoBehaviour {
                         DialoguePortrait,
                         DialogueBackground,
                         DialogueTitle,
-                        DialogueArray[CurrentDialogueIndex]);
+                        DialogueArray[CurrentDialogueIndex],
+                        IsObjectItem);
 
                     IsDialogueBoxInitiated = true;
+                    PlayerController.IsCharacterInADialogue = true;
                 } else
                 {
-                    StartCoroutine(DialogueContainerScript.UpdateDialogueText(DialogueArray[CurrentDialogueIndex]));
+                    StartCoroutine(DialogueContainerScript.UpdateDialogueText(DialogueArray[CurrentDialogueIndex], IsObjectItem));
                 }
             }
         }
 
         CurrentDialogueIndex++;
     }
-
-    private void OnTriggerStay(Collider other)
+    
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (DialogueContainerScript.IsDialogueTextLoaded &&
-            Input.GetKeyDown(KeyCode.Space))
+            Input.GetKeyDown(KeyCode.X))
         {
             ContinueDialogue();
         }

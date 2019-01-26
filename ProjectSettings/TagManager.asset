@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dialogue Container
+  - New Destination
+  - Door
+  - Transitioner
   layers:
   - Default
   - TransparentFX

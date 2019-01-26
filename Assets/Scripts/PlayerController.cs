@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    [Range(0, 100)]
+    [Range(0, 800)]
     public float Speed;
-    private CharacterController _characterController;
+    private Rigidbody2D _rigidbody;
+    public static bool IsCharacterInADialogue = false;
+    public static bool IsTeleportingPlayer = false;
 
 	void Start () {
-        _characterController = GetComponent<CharacterController>();
+        _rigidbody = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () {
-        float horizontalMovement = Input.GetAxisRaw("Horizontal");
-        float verticalMovement = Input.GetAxisRaw("Vertical");
+        if (IsCharacterInADialogue == false &&
+            IsTeleportingPlayer == false)
+        {
+            float horizontalMovement = Input.GetAxisRaw("Horizontal");
+            float verticalMovement = Input.GetAxisRaw("Vertical");
 
-        _characterController.Move(
-            new Vector3(
-                horizontalMovement * (Speed * 0.0020f),
-                verticalMovement * (Speed * 0.0020f), 0));
+            _rigidbody.AddForce(
+                new Vector3(
+                    horizontalMovement * (Speed),
+                    verticalMovement * (Speed), 0));
+        }
 	}
 }

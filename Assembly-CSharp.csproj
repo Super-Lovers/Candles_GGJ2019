@@ -63,7 +63,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DialogueContainer.cs" />
     <Compile Include="Assets\Scripts\DialogueController.cs" />
+    <Compile Include="Assets\Scripts\DoorTeleporter.cs" />
+    <Compile Include="Assets\Scripts\FadeController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Teleporter.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>A:/Unity Projects/ggj-game/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
