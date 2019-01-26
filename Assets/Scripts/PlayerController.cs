@@ -10,7 +10,10 @@ public class PlayerController : MonoBehaviour {
     public static bool IsTeleportingPlayer = false;
     public IntroDialogueScript IntroDialogueScript;
 
+    private Animator _animator;
+
 	void Start () {
+        _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
         IntroDialogueScript = GameObject.FindGameObjectWithTag("Intro Container").GetComponent<IntroDialogueScript>();
 	}
@@ -22,6 +25,34 @@ public class PlayerController : MonoBehaviour {
         {
             float horizontalMovement = Input.GetAxisRaw("Horizontal");
             float verticalMovement = Input.GetAxisRaw("Vertical");
+
+            // If the player is standing still
+            if (horizontalMovement == 0 && verticalMovement == 0)
+            {
+                _animator.SetBool("Is Player Idle", true);
+            } else
+            {
+                _animator.SetBool("Is Player Idle", false);
+
+                if (horizontalMovement > 0)
+                {
+                    _animator.SetInteger("Player Direction", 1);
+                    _animator.SetInteger("Last Player Direction", 1);
+                } else if (horizontalMovement < 0)
+                {
+                    _animator.SetInteger("Player Direction", 0);
+                    _animator.SetInteger("Last Player Direction", 0);
+                } else if (verticalMovement > 0)
+                {
+                    _animator.SetInteger("Player Direction", 2);
+                    _animator.SetInteger("Last Player Direction", 2);
+                } else if (verticalMovement < 0)
+                {
+                    _animator.SetInteger("Player Direction", 3);
+                    _animator.SetInteger("Last Player Direction", 3);
+                }
+            }
+
 
             _rigidbody.AddForce(
                 new Vector3(
