@@ -8,6 +8,9 @@ TagManager:
   - New Destination
   - Door
   - Transitioner
+  - Option 1
+  - Option 2
+  - Intro Container
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class IntroDialogueScript : MonoBehaviour
     private Image _currentDialoguePortrait;
     private Text _currentDialogueTextComponent;
     private Text _currentDialogueTitle;
+    private Text _optionOne;
+    private Text _optionTwo;
 
     public bool IsDialogueTextLoaded;
 
@@ -22,23 +25,30 @@ public class IntroDialogueScript : MonoBehaviour
 
     List<object[]> DialogueStructure = new List<object[]>();
     private int _currentDialogueIndex = 0;
-    private bool _isIntroEnded = false;
+    public bool IsIntroEnded = false;
     private bool _isIntroDisplayed = false;
+    private bool _areOptionsGiven = false;
+    private string _currentResponse = string.Empty;
 
     public object[] Dad_0 = new object[3];
     public object[] Jane_1 = new object[3];
     public object[] Dad_2 = new object[3];
     public object[] Dad_3 = new object[3];
-    public object[] Jane_4 = new object[3];
-    public object[] Dad_5 = new object[4];
-    public object[] Jane_6 = new object[3];
-    public object[] Mom_7 = new object[3];
-    public object[] Jane_8 = new object[3];
-    public object[] Dad_9 = new object[3];
+    public object[] Dad_4 = new object[3];
+    public object[] Jane_5 = new object[4];
+    public object[] Mom_6 = new object[3];
+    public object[] Jane_7 = new object[3];
+    public object[] Dad_8 = new object[3];
+    public object[] Jane_9 = new object[3];
     public object[] Jane_10 = new object[3];
-    public object[] Jane_11 = new object[3];
-    
-	void Start () {
+
+    private string _temporaryOptionOneStr = string.Empty;
+    private string _temporaryOptionTwoStr = string.Empty;
+
+    void Start () {
+        _optionOne = GameObject.FindGameObjectWithTag("Option 1").GetComponent<Text>();
+        _optionTwo = GameObject.FindGameObjectWithTag("Option 2").GetComponent<Text>();
+
         _currentDialoguePortrait = DialoguePortrait.GetComponent<Image>();
         _currentDialogueTextComponent = CurrentDialogueText.GetComponent<Text>();
         _currentDialogueTitle = DialogueTitle.GetComponent<Text>();
@@ -46,17 +56,16 @@ public class IntroDialogueScript : MonoBehaviour
         Dad_0 = new object[] { "Father", DadPortrait, "Well Jane, have you finished your homework for today?" };
         Jane_1 = new object[] { "Jane", JanePortrait, "No, dad.. I went out after school with some friends." };
         Dad_2 = new object[] { "Father", DadPortrait, ".. your friends are not like you Jane, you’re wasting time that you could use for studying!" };
-        Dad_3 = new object[] { "Father", DadPortrait, "Otherwise, you’ll never achieve your dream of becoming a doctor." };
-        Jane_4 = new object[] { "Jane", JanePortrait, "Yes father, I am aware.." };
-        Dad_5 = new object[] { "Father", DadPortrait, "Then you should act like it already!" };
-        Jane_6 = new object[] { "Jane", JanePortrait, "Yes father.." };
-        Mom_7 = new object[] { "Mom", MomPortrait, "Oh light up darling, dad only wants the best for you." };
-        Jane_8 = new object[] { "Jane", JanePortrait, "the best for me.. or the best for you two?" };
-        Dad_9 = new object[] { "Father", DadPortrait, "I will NOT tolerate such insolence in MY house! Go to your room right now young lady!" };
-        Jane_10 = new object[] { "Jane", JanePortrait, "Hmpf!" };
-        Jane_11 = new object[] { "Jane", JanePortrait, "I need to get out of this place.. I feel like I’m suffocating in here.!" };
+        Dad_3 = new object[] { "Father", DadPortrait, "Otherwise, you’ll never achieve your dream of becoming a doctor.",  "Yes father, I am aware..", "I don’t even want to become a doctor..." };
+        Dad_4 = new object[] { "Father", DadPortrait, "" };
+        Jane_5 = new object[] { "Jane", JanePortrait, "Yes father.." };
+        Mom_6 = new object[] { "Mom", MomPortrait, "Oh light up darling, dad only wants the best for you." };
+        Jane_7 = new object[] { "Jane", JanePortrait, "the best for me.. or the best for you two?" };
+        Dad_8 = new object[] { "Father", DadPortrait, "I will NOT tolerate such insolence in MY house! Go to your room right now young lady!" };
+        Jane_9 = new object[] { "Jane", JanePortrait, "Hmpf!" };
+        Jane_10 = new object[] { "Jane", JanePortrait, "I need to get out of this place.. I feel like I’m suffocating in here.!" };
 
-        DialogueStructure = new List<object[]>() { Dad_0, Jane_1, Dad_2, Dad_3, Jane_4, Dad_5, Jane_6, Mom_7, Jane_8, Dad_9, Jane_10, Jane_11 };
+        DialogueStructure = new List<object[]>() { Dad_0, Jane_1, Dad_2, Dad_3, Dad_4, Jane_5, Mom_6, Jane_7, Dad_8, Jane_9, Jane_10 };
     }
 
     private void UpdateDialogueContainer()
@@ -67,7 +76,32 @@ public class IntroDialogueScript : MonoBehaviour
             {
                 _currentDialogueTitle.text = (string)DialogueStructure[i][0];
                 _currentDialoguePortrait.sprite = (Sprite)DialogueStructure[i][1];
-                StartCoroutine(UpdateDialogueText((string)DialogueStructure[i][2]));
+                if (DialogueStructure[i].Length > 3)
+                {
+                    _temporaryOptionOneStr = (string)DialogueStructure[i][3];
+                    _temporaryOptionTwoStr = (string)DialogueStructure[i][4];
+
+                    _optionOne.text = (string)DialogueStructure[i][3];
+                    _optionTwo.text = (string)DialogueStructure[i][4];
+
+                    _areOptionsGiven = true;
+                } else
+                {
+                    if (_currentResponse != string.Empty
+                        )
+                    {
+                        if (_currentResponse == "Yes father, I am aware..")
+                        {
+                            StartCoroutine(UpdateDialogueText("Then you should act like it already!"));
+                        } else if (_currentResponse == "I don’t even want to become a doctor...")
+                        {
+                            StartCoroutine(UpdateDialogueText("Nonsense, our family has a long history bringing up doctors. You shall not bring shame to our family name."));
+                        }
+                    } else
+                    {
+                        StartCoroutine(UpdateDialogueText((string)DialogueStructure[i][2]));
+                    }
+                }
             }
         }
     }
@@ -91,7 +125,36 @@ public class IntroDialogueScript : MonoBehaviour
 
     private void Update()
     {
-        if (_isIntroEnded == false &&
+        if (_areOptionsGiven)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                _currentResponse = _temporaryOptionOneStr;
+                _optionTwo.text = _temporaryOptionTwoStr;
+                _optionOne.text += " <<<";
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                _currentResponse = _temporaryOptionTwoStr;
+                _optionOne.text = _temporaryOptionOneStr;
+                _optionTwo.text += " <<<";
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _currentDialogueIndex++;
+                UpdateDialogueContainer();
+
+                _optionOne.text = string.Empty;
+                _optionTwo.text = string.Empty;
+                _areOptionsGiven = false;
+            }
+        } else
+        {
+            _currentResponse = string.Empty;
+        }
+
+        if (IsIntroEnded == false &&
             IsDialogueTextLoaded && 
             Input.GetKeyDown(KeyCode.Space))
         {
@@ -110,7 +173,7 @@ public class IntroDialogueScript : MonoBehaviour
             } else
             {
                 HideDialogue();
-                _isIntroEnded = true;
+                IsIntroEnded = true;
             }
         }
     }

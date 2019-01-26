@@ -8,14 +8,17 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D _rigidbody;
     public static bool IsCharacterInADialogue = false;
     public static bool IsTeleportingPlayer = false;
+    public IntroDialogueScript IntroDialogueScript;
 
 	void Start () {
         _rigidbody = GetComponent<Rigidbody2D>();
+        IntroDialogueScript = GameObject.FindGameObjectWithTag("Intro Container").GetComponent<IntroDialogueScript>();
 	}
 	
 	void Update () {
         if (IsCharacterInADialogue == false &&
-            IsTeleportingPlayer == false)
+            IsTeleportingPlayer == false &&
+            IntroDialogueScript.IsIntroEnded == true)
         {
             float horizontalMovement = Input.GetAxisRaw("Horizontal");
             float verticalMovement = Input.GetAxisRaw("Vertical");
