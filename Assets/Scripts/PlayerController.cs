@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
     public RuntimeAnimatorController SpookyAnimator;
     private Animator _animator;
 
+    public int TimeUntilSentBack;
+
 	void Start () {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
