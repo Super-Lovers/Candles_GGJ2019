@@ -47972,7 +47972,7 @@ MonoBehaviour:
     type: 3}
   JaneDialogueBackground: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93,
     type: 3}
-  IsIntroEnded: 1
+  IsIntroEnded: 0
 --- !u!224 &1762461057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49670,7 +49670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2094552521
 Transform:
   m_ObjectHideFlags: 0

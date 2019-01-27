@@ -205,7 +205,7 @@ public class DialogueController : MonoBehaviour {
                         _playerAnimator.SetBool("Is Player Idle", true);
                     }
 
-                    if (PlayerController.IsPlayerSpooky && _playerScript.IsJaneDoorOpened == false &&
+                    if (PlayerController.IsPlayerSpooky &&
                         gameObject.transform.name == "Blocked Door")
                     {
                         DialogueContainerScript.DisplayDialogueBox(
@@ -219,7 +219,7 @@ public class DialogueController : MonoBehaviour {
                         IsDialogueBoxInitiated = true;
                         PlayerController.IsCharacterInADialogue = true;
 
-                        _playerScript.IsJaneDoorOpened = true;
+                        //_playerScript.IsJaneDoorOpened = true;
                     } else
                     {
                         DialogueContainerScript.DisplayDialogueBox(
@@ -374,7 +374,7 @@ public class DialogueController : MonoBehaviour {
                 FinishDialogueBox();
             } else
             {
-                if (gameObject.transform.name == "Blocked Door" && _playerScript.IsJaneDoorOpened)
+                if (gameObject.transform.name == "Blocked Door")
                 {
                     Destroy(gameObject);
                 }
