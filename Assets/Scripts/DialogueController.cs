@@ -55,7 +55,8 @@ public class DialogueController : MonoBehaviour {
 
         foreach (GameObject spiritRealmObject in SpiritRealmObjects)
         {
-            if (spiritRealmObject.name == "Spirit Mother")
+            if (spiritRealmObject.name == "Spirit Mother" ||
+                spiritRealmObject.name == "Spirit Mother Kitchen")
             {
                 spiritRealmObject.GetComponent<SpriteRenderer>().sprite = null;
             }
@@ -253,7 +254,8 @@ public class DialogueController : MonoBehaviour {
         }
         foreach (GameObject spiritRealmObject in SpiritRealmObjects)
         {
-            if (spiritRealmObject.name == "Spirit Mother")
+            if (spiritRealmObject.name == "Spirit Mother" ||
+                spiritRealmObject.name == "Spirit Mother Kitchen")
             {
                 spiritRealmObject.GetComponent<SpriteRenderer>().sprite = SpiritMotherBlockSprite;
             }
@@ -348,6 +350,21 @@ public class DialogueController : MonoBehaviour {
     
     private void OnTriggerStay2D(Collider2D collision)
     {
+
+        if (PlayerController.IsPlayerSpooky)
+        {
+            if (collision.transform.name == "Player" &&
+            gameObject.transform.name == "Spirit Mother Kitchen Radius")
+            {
+                GetComponentInParent<CapsuleCollider2D>().enabled = true;
+            }
+        }
+        else if (PlayerController.IsPlayerSpooky == false &&
+          gameObject.transform.name == "Spirit Mother Kitchen Radius")
+        {
+            GetComponentInParent<CapsuleCollider2D>().enabled = false;
+        }
+
         if (DialogueContainerScript.IsDialogueTextLoaded &&
             PlayerController.IsTeleportingPlayer == false &&
             Input.GetKeyDown(KeyCode.Space))
@@ -416,6 +433,20 @@ public class DialogueController : MonoBehaviour {
         {
             _playerAnimator.SetBool("Is Player Idle", true);
             ContinueDialogue();
+        } else if (collision.transform.tag == "Player" &&
+            gameObject.transform.name == "Spirit Father")
+        {
+            _playerAnimator.SetBool("Is Player Idle", true);
+            ContinueDialogue();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Player" &&
+            gameObject.transform.name == "Spirit Father")
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -19,6 +19,7 @@ TagManager:
   - Default Tiles
   - Default Walls
   - Interior Object
+  - Intro Objects
   layers:
   - Default
   - TransparentFX

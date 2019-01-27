@@ -51,8 +51,13 @@ public class IntroDialogueScript : MonoBehaviour
 
     private string _temporaryOptionOneStr = string.Empty;
     private string _temporaryOptionTwoStr = string.Empty;
+    private FadeController _fadeControllerScript;
 
-    void Start () {
+
+    void Start ()
+    {
+        _fadeControllerScript = GameObject.FindGameObjectWithTag("Transitioner").GetComponent<FadeController>();
+
         _optionOne = GameObject.FindGameObjectWithTag("Option 1").GetComponent<Text>();
         _optionTwo = GameObject.FindGameObjectWithTag("Option 2").GetComponent<Text>();
 
@@ -237,6 +242,18 @@ public class IntroDialogueScript : MonoBehaviour
             } else
             {
                 HideDialogue();
+
+                GameObject[] introObjects = GameObject.FindGameObjectsWithTag("Intro Objects");
+                
+                foreach (GameObject obj in introObjects)
+                {
+                    obj.SetActive(false);
+                }
+
+                Invoke("ReturnToRoom", 2f);
+                PlayerController.IsTeleportingPlayer = true;
+
+                _fadeControllerScript.StartFade();
                 IsIntroEnded = true;
             }
         }
