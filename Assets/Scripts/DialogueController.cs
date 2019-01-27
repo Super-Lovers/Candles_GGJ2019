@@ -16,6 +16,7 @@ public class DialogueController : MonoBehaviour {
     private GameObject _player;
     private Animator _playerAnimator;
     private PlayerController _playerScript;
+    private AudioSource _audioSource;
 
     private GameObject[] pointLights;
     private GameObject _playerLight;
@@ -66,6 +67,7 @@ public class DialogueController : MonoBehaviour {
             }
         }
 
+        _audioSource = GetComponent<AudioSource>();
         _player = GameObject.FindGameObjectWithTag("Player");
         pointLights = GameObject.FindGameObjectsWithTag("Candle");
         _playerLight = _player.transform.GetChild(1).gameObject;
@@ -79,7 +81,7 @@ public class DialogueController : MonoBehaviour {
 
         _playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         _playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        _playerScript.IsNecklaceFound = true;
+        //_playerScript.IsNecklaceFound = true;
 
         DialogueContainerScript = GameObject.FindGameObjectWithTag("Dialogue Container").GetComponent<DialogueContainer>();
 
@@ -116,7 +118,8 @@ public class DialogueController : MonoBehaviour {
         if (gameObject.transform.name == "Toilet")
         {
             if (_playerScript.IsBedChecked == false ||
-                _playerScript.IsBoxChecked == false)
+                _playerScript.IsBoxChecked == false ||
+                PlayerController.IsPlayerSpooky == false)
             {
                 DialogueContainerScript.DisplayDialogueBox(
                     DialoguePortrait,
@@ -179,6 +182,26 @@ public class DialogueController : MonoBehaviour {
             return;
         }
 
+        if (_playerScript.IsNecklaceFound &&
+            gameObject.transform.name == "Spirit Mother" &&
+            PlayerController.IsPlayerSpooky == false)
+        {
+            DialogueContainerScript.DisplayDialogueBox(
+                DialoguePortrait,
+                DialogueBackground,
+                DialogueTitle,
+                "Where do you think you are going...",
+                IsObjectItem,
+                null);
+
+            CurrentDialogueIndex += 2;
+
+            DialogueContainerScript.IsDialogueTextLoaded = false;
+            IsDialogueBoxInitiated = true;
+            PlayerController.IsCharacterInADialogue = true;
+            return;
+        }
+
         for (int i = 0; i < DialogueArray.Length; i++)
         {
             if (i == CurrentDialogueIndex)
@@ -189,23 +212,28 @@ public class DialogueController : MonoBehaviour {
                     // if its a candle, and then we change his mode/realm
                     if (gameObject.transform.tag == "Candle")
                     {
+                        _audioSource.PlayOneShot(_audioSource.clip);
+
+                        StopAllCoroutines();
+                        _timerText.text = "10";
+                        _timeCounter = _playerScript.TimeUntilSentBack;
                         if (PlayerController.IsPlayerSpooky)
                         {
                             ReturnToHumanRealm();
+                            PlayerController.IsPlayerSpooky = false;
                         }
                         else
                         {
                             SendToSpiritRealm();
+                            PlayerController.IsPlayerSpooky = true;
                         }
-
-                        PlayerController.IsPlayerSpooky = !PlayerController.IsPlayerSpooky;
 
                         // This makes sure the character stops moving when
                         // it switches realms.
                         _playerAnimator.SetBool("Is Player Idle", true);
                     }
 
-                    if (PlayerController.IsPlayerSpooky &&
+                    if (PlayerController.IsPlayerSpooky && _playerScript.IsJaneDoorOpened == false &&
                         gameObject.transform.name == "Blocked Door")
                     {
                         DialogueContainerScript.DisplayDialogueBox(
@@ -219,7 +247,7 @@ public class DialogueController : MonoBehaviour {
                         IsDialogueBoxInitiated = true;
                         PlayerController.IsCharacterInADialogue = true;
 
-                        //_playerScript.IsJaneDoorOpened = true;
+                        _playerScript.IsJaneDoorOpened = true;
                     } else
                     {
                         DialogueContainerScript.DisplayDialogueBox(
@@ -295,7 +323,6 @@ public class DialogueController : MonoBehaviour {
         Timer.SetActive(true);
         _timerText.text = "10";
         _timeCounter = _playerScript.TimeUntilSentBack;
-        Invoke("ReturnToHumanRealm", _playerScript.TimeUntilSentBack);
         StartCoroutine(CountDown());
     }
 
@@ -367,19 +394,25 @@ public class DialogueController : MonoBehaviour {
 
         if (DialogueContainerScript.IsDialogueTextLoaded &&
             PlayerController.IsTeleportingPlayer == false &&
-            Input.GetKeyDown(KeyCode.Space))
+            Input.GetKeyDown(KeyCode.E))
         {
             if (CurrentDialogueIndex >= DialogueArray.Length)
             {
                 FinishDialogueBox();
+                if (gameObject.transform.name == "Blocked Door" && _playerScript.IsJaneDoorOpened)
+                {
+                    Destroy(gameObject);
+                }
             } else
             {
-                if (gameObject.transform.name == "Blocked Door")
+                if (gameObject.transform.name == "Blocked Door" && _playerScript.IsJaneDoorOpened)
                 {
                     Destroy(gameObject);
                 }
 
-                if (gameObject.transform.name == "Spirit Mother" && _playerScript.IsNecklaceFound)
+                if (gameObject.transform.name == "Spirit Mother" &&
+                GetComponent<SpriteRenderer>().sprite != null &&
+                _playerScript.IsNecklaceFound)
                 {
                     Invoke("RemoveDialogueAndObject", 3f);
                 }
@@ -413,8 +446,18 @@ public class DialogueController : MonoBehaviour {
             Destroy(GameObject.Find("Human Mother"));
         }
 
+        if (gameObject.transform.name == "Spirit Mother")
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+        } else
+        {
+            Destroy(gameObject);
+        }
         FinishDialogueBox();
-        Destroy(gameObject);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -475,5 +518,7 @@ public class DialogueController : MonoBehaviour {
             _timeCounter--;
             _timerText.text = _timeCounter.ToString();
         }
+
+        ReturnToHumanRealm();
     }
 }

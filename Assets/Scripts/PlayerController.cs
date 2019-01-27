@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     // ****************************
     // Player Levels variables
     // *** Puzzle in Jane's room
-    //public bool IsJaneDoorOpened = false;
+    public bool IsJaneDoorOpened = false;
     public bool IsBedChecked = false;
     public bool IsBoxChecked = false;
     public GameObject JaneBlockedDoor;

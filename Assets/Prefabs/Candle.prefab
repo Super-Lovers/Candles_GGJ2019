@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61643891746043458}
   - component: {fileID: 61582201954394656}
   - component: {fileID: 114060732301397478}
+  - component: {fileID: 82449870028966506}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Candle
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254197890849066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.47, y: 2.5900002, z: 0}
+  m_LocalPosition: {x: -14.11, y: -10.571204, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4203854929190592}
@@ -124,6 +125,101 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56, y: 0.57}
   m_EdgeRadius: 0
+--- !u!82 &82449870028966506
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254197890849066}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: afd36785f0190514589cae2a5ddf5921, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95640150064079408
 Animator:
   serializedVersion: 3
@@ -192,15 +288,125 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentDialogueIndex: 0
   DialoguePortrait: {fileID: 0}
-  DialogueBackground: {fileID: 21300000, guid: a573a7a003fc5094e88d0215e158bc58, type: 3}
+  DialogueBackground: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
+  DialogueItemPreview: {fileID: 0}
   DialogueTitle: 
   DialogueArray:
-  - THHZZAAA WOORLLDDOOOO
+  - ZA WARUDO
   IsObjectItem: 1
-  _grayscaleWalls: {fileID: 0}
-  _grayscaleTiles: {fileID: 0}
-  _defaultWalls: {fileID: 0}
-  _defaultTiles: {fileID: 0}
+  GrayscaleWalls: {fileID: 0}
+  GrayscaleTiles: {fileID: 0}
+  DefaultTiles: {fileID: 0}
+  DefaultWalls: {fileID: 0}
+  InteriorDefaultObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  InteriorSpookySprites:
+  - {fileID: 21300000, guid: d439cbf9019c1f44eb8f4f6d066c75ce, type: 3}
+  - {fileID: 21300000, guid: 1d474fbe66bf3104d920dcca78d89e33, type: 3}
+  - {fileID: 21300000, guid: e28d086d94998f1488b599207302f1f8, type: 3}
+  - {fileID: 21300000, guid: d7f477a117c54704185036cdab8e3055, type: 3}
+  - {fileID: 21300000, guid: bcf3aaaca6028594c852db9ae4ca3c1e, type: 3}
+  - {fileID: 21300000, guid: 89ca6df3ed9aa6d43ae4922462d13aab, type: 3}
+  - {fileID: 21300000, guid: 0ea95eca43263ad40a1e55ae82110a7a, type: 3}
+  - {fileID: 21300000, guid: 7f750c9a1fae68646b82639d0fc15d3c, type: 3}
+  - {fileID: 21300000, guid: a26ed464d3fee74429f72a8f78fcf835, type: 3}
+  - {fileID: 21300000, guid: 5c6f42d17f51d834a84c26a9aec12d2f, type: 3}
+  - {fileID: 21300000, guid: 3f2dd54e23607c94a88a6bf302509915, type: 3}
+  - {fileID: 21300000, guid: 3059cddd44f8cc24bb597e9642b59b4e, type: 3}
+  - {fileID: 21300000, guid: f4fe500389ac7b24aa604d18e122610f, type: 3}
+  - {fileID: 21300000, guid: 572a6ee2d7a7fb640a6aa4a96d966fe9, type: 3}
+  - {fileID: 21300000, guid: bb536b8b969edb84a9557b73e95b39a0, type: 3}
+  - {fileID: 21300000, guid: 7120b5db8b1798e41831189ff4d90996, type: 3}
+  - {fileID: 21300000, guid: d1b2461a3ef05bb469730ab3f37027a9, type: 3}
+  - {fileID: 21300000, guid: f36d94e9e5ac5a143b9405fbaec2c7a0, type: 3}
+  - {fileID: 21300000, guid: 0c2f529b819875e4b8c46e61f0496c81, type: 3}
+  - {fileID: 21300000, guid: bb6bf539ddc9cea42a991fe75ba41823, type: 3}
+  - {fileID: 21300000, guid: 0b17e5258c2058247b5335c33bb07162, type: 3}
+  - {fileID: 21300000, guid: f4fe500389ac7b24aa604d18e122610f, type: 3}
+  - {fileID: 21300000, guid: 0d8266283eb33a94a8e9d5ad9d10f995, type: 3}
+  InteriorDefaultSprites:
+  - {fileID: 21300000, guid: c0330ebe2dffb7a4198199087958bf0b, type: 3}
+  - {fileID: 21300000, guid: 48a7adc6c39f5074cbc13f1ffe2a4a77, type: 3}
+  - {fileID: 21300000, guid: b6269fe4e33f7d44f958b321047ee55e, type: 3}
+  - {fileID: 21300000, guid: 2fbed1818792f5148ab1a22822860912, type: 3}
+  - {fileID: 21300000, guid: a2739f49290a6954e993fac2d675ca3e, type: 3}
+  - {fileID: 21300000, guid: 05924b68cdc788a4f88869dcc90d1c77, type: 3}
+  - {fileID: 21300000, guid: ebab2d64a45196a4c935b3988787b51e, type: 3}
+  - {fileID: 21300000, guid: 67568bda6db755449b61ddcfef407404, type: 3}
+  - {fileID: 21300000, guid: 4ee2b2b0114abf5469abe690e90492ca, type: 3}
+  - {fileID: 21300000, guid: 4c416f41a396fdd4a9463b7251ca5d9d, type: 3}
+  - {fileID: 21300000, guid: 9b3137a65cf8d774eb20f2563d12a373, type: 3}
+  - {fileID: 21300000, guid: 1e109cf9d7bb14b4c8359ccca5b7f379, type: 3}
+  - {fileID: 21300000, guid: 7a48b368c7c7ee94abb72870de267b1e, type: 3}
+  - {fileID: 21300000, guid: e190da92d734b1144864430de90e527d, type: 3}
+  - {fileID: 21300000, guid: b43254c067b0db242a0b619225a317e3, type: 3}
+  - {fileID: 21300000, guid: ba244df1e336f0744ba4be7d28cbe234, type: 3}
+  - {fileID: 21300000, guid: 9f15f1f30073ad249ac2fd257e77a890, type: 3}
+  - {fileID: 21300000, guid: faa0ead097124d74aa558b2c8a0713fc, type: 3}
+  - {fileID: 21300000, guid: 07bac6c053ae8d4419f8d9718891bedb, type: 3}
+  - {fileID: 21300000, guid: f01d64a48df367540ab4e74637c51eec, type: 3}
+  - {fileID: 21300000, guid: 83dab2b52e2d2214fb7e27b87f0ce0db, type: 3}
+  - {fileID: 21300000, guid: d8ab510c933a9754582f66cd7f94aaab, type: 3}
+  - {fileID: 21300000, guid: 9f15f1f30073ad249ac2fd257e77a890, type: 3}
+  Timer: {fileID: 0}
+  SpiritRealmObjects:
+  - {fileID: 0}
+  HumanRealmObjects:
+  - {fileID: 0}
+  SpiritMotherBlockSprite: {fileID: 21300006, guid: a572e481f0ae24a4ab834ddbe9158140,
+    type: 3}
   IsDialogueBoxInitiated: 0
 --- !u!212 &212277824220030466
 SpriteRenderer:
