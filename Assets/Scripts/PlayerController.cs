@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     public bool IsBedChecked = false;
     public bool IsBoxChecked = false;
     public bool IsAlarmActive = false;
+    public bool AreLogsPickedUp = false;
     public GameObject JaneBlockedDoor;
 
     // ** Room where you find the box

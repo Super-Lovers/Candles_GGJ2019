@@ -19,7 +19,7 @@ public class DialogueController : MonoBehaviour {
     private AudioSource _audioSource;
 
     private GameObject[] pointLights;
-    private GameObject _playerLight;
+    public GameObject PlayerLight;
     private GameObject _directionalLight;
     public GameObject GrayscaleWalls;
     public GameObject GrayscaleTiles;
@@ -42,6 +42,7 @@ public class DialogueController : MonoBehaviour {
     public Sprite SpiritFatherBlockSprite;
     public Sprite SpiritFatherWorkplaceBlockSprite;
     public GameObject HumanFatherAtPhone;
+    public GameObject PhoneBlockade;
 
     // **************************
     // Dialogue Paramteres
@@ -49,6 +50,11 @@ public class DialogueController : MonoBehaviour {
     
 	void Start ()
     {
+        if (PhoneBlockade)
+        {
+            PhoneBlockade.SetActive(false);
+        }
+
         if (HumanFatherAtPhone)
         {
             HumanFatherAtPhone.SetActive(false);
@@ -82,7 +88,6 @@ public class DialogueController : MonoBehaviour {
         _audioSource = GetComponent<AudioSource>();
         _player = GameObject.FindGameObjectWithTag("Player");
         pointLights = GameObject.FindGameObjectsWithTag("Candle");
-        _playerLight = _player.transform.GetChild(1).gameObject;
         _directionalLight = GameObject.FindGameObjectWithTag("Sun");
 
         // Setting up the initial lighting system settings
@@ -114,8 +119,14 @@ public class DialogueController : MonoBehaviour {
             DefaultWalls.SetActive(true);
         }
 
-        _playerLight.SetActive(false);
-        _directionalLight.SetActive(true);
+        if (PlayerLight)
+        {
+            PlayerLight.SetActive(false);
+        }
+        if (_directionalLight)
+        {
+            _directionalLight.SetActive(true);
+        }
     }
 
     public void ContinueDialogue()
@@ -130,8 +141,8 @@ public class DialogueController : MonoBehaviour {
         if (gameObject.transform.name == "Phone" &&
             (_playerScript.IsBedChecked == false ||
             _playerScript.IsBoxChecked == false ||
-            _playerScript.IsNecklaceFound == false ||
-            _playerScript.IsAlarmActive == false))
+            _playerScript.IsNecklaceFound == false) &&
+            _playerScript.IsAlarmActive == false)
         {
             DialogueContainerScript.DisplayDialogueBox(
                 DialoguePortrait,
@@ -149,8 +160,16 @@ public class DialogueController : MonoBehaviour {
             IsDialogueBoxInitiated = true;
             PlayerController.IsCharacterInADialogue = true;
             return;
-        } else
+        } else if (gameObject.transform.name == "Phone" && (_playerScript.IsBedChecked ||
+            _playerScript.IsBoxChecked ||
+            _playerScript.IsNecklaceFound ||
+            _playerScript.IsAlarmActive))
         {
+            if (PhoneBlockade)
+            {
+                PhoneBlockade.SetActive(true);
+            }
+            _playerScript.IsAlarmActive = true;
             GameObject.Find("Phone").GetComponent<Animator>().enabled = true;
         }
 
@@ -164,6 +183,28 @@ public class DialogueController : MonoBehaviour {
             PlayerController.IsPlayerHiding = true;
             Invoke("HidePlayer", 0.5f);
             Invoke("ShowPlayer", 5f);
+            return;
+        }
+
+        if (gameObject.transform.name == "Fireplace" &&
+            (_playerScript.AreLogsPickedUp == false ||
+            PlayerController.IsPlayerSpooky == false))
+        {
+            DialogueContainerScript.DisplayDialogueBox(
+                DialoguePortrait,
+                DialogueBackground,
+                DialogueTitle,
+                "The fireplace is very empty.",
+                IsObjectItem,
+                null);
+
+            // This makes sure it wont let you click space again
+            // for a new dialogue to pop up.
+            CurrentDialogueIndex += 2;
+
+            DialogueContainerScript.IsDialogueTextLoaded = false;
+            IsDialogueBoxInitiated = true;
+            PlayerController.IsCharacterInADialogue = true;
             return;
         }
 
@@ -381,17 +422,23 @@ public class DialogueController : MonoBehaviour {
 
         foreach (GameObject lightObj in pointLights)
         {
-            lightObj.transform.GetChild(0).gameObject.SetActive(true);
+            if (lightObj)
+            {
+                lightObj.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
 
         foreach (GameObject obj in InteriorDefaultObjects)
         {
-            SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
-            foreach (Sprite spr in InteriorSpookySprites)
+            if (obj)
             {
-                if ("spooky" + objRenderer.sprite.ToString() == spr.ToString())
+                SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
+                foreach (Sprite spr in InteriorSpookySprites)
                 {
-                    objRenderer.sprite = spr;
+                    if ("spooky" + objRenderer.sprite.ToString() == spr.ToString())
+                    {
+                        objRenderer.sprite = spr;
+                    }
                 }
             }
         }
@@ -401,7 +448,7 @@ public class DialogueController : MonoBehaviour {
         DefaultTiles.SetActive(false);
         DefaultWalls.SetActive(false);
 
-        _playerLight.SetActive(true);
+        PlayerLight.SetActive(true);
         _directionalLight.SetActive(false);
 
         // After a limited time, the player will be returned
@@ -443,27 +490,36 @@ public class DialogueController : MonoBehaviour {
 
         foreach (GameObject lightObj in pointLights)
         {
-            lightObj.transform.GetChild(0).gameObject.SetActive(false);
+            if (lightObj)
+            {
+                lightObj.transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
 
         foreach (GameObject obj in InteriorDefaultObjects)
         {
-            SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
-            foreach (Sprite spr in InteriorDefaultSprites)
+            if (obj)
             {
-                if (objRenderer.sprite.ToString() == "spooky" + spr.ToString())
+                SpriteRenderer objRenderer = obj.GetComponent<SpriteRenderer>();
+                foreach (Sprite spr in InteriorDefaultSprites)
                 {
-                    objRenderer.sprite = spr;
+                    if (objRenderer.sprite.ToString() == "spooky" + spr.ToString())
+                    {
+                        objRenderer.sprite = spr;
+                    }
                 }
             }
         }
 
         if (GameObject.Find("Spirit Mother").GetComponent<CapsuleCollider2D>().enabled == false)
         {
-            Destroy(GameObject.Find("Human Mother").gameObject);
+            if (GameObject.Find("Human Mother").gameObject)
+            {
+                Destroy(GameObject.Find("Human Mother").gameObject);
+            }
         }
 
-        _playerLight.SetActive(false);
+        PlayerLight.SetActive(false);
         _directionalLight.SetActive(true);
 
         GrayscaleWalls.SetActive(false);
@@ -477,6 +533,12 @@ public class DialogueController : MonoBehaviour {
     
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (gameObject.transform.name == "Spectral Logs" &&
+            _playerScript.AreLogsPickedUp)
+        {
+            return;
+        }
+
         if (PlayerController.IsPlayerSpooky)
         {
             if (collision.transform.name == "Player" &&
@@ -531,11 +593,28 @@ public class DialogueController : MonoBehaviour {
                 {
                     _playerScript.IsNecklaceFound = true;
                 }
+                if (gameObject.transform.name == "Spectral Logs")
+                {
+                    _playerScript.AreLogsPickedUp = true;
+                    Invoke("RemoveDialogueAndObject", 2f);
+                }
+                if (gameObject.transform.name == "Fireplace" &&
+                    _playerScript.AreLogsPickedUp &&
+                    PlayerController.IsPlayerSpooky)
+                {
+                    Invoke("ReturnToRoom", 2f);
+                    Invoke("RemoveFatherAtWorkplaceDoor", 2.5f);
+                }
 
                 _playerAnimator.SetBool("Is Player Idle", true);
                 ContinueDialogue();
             }
         }
+    }
+
+    private void RemoveFatherAtWorkplaceDoor()
+    {
+        Destroy(GameObject.Find("Spirit Father Block Workplace").gameObject);
     }
 
     private void RemoveDialogueAndObject()
@@ -557,7 +636,6 @@ public class DialogueController : MonoBehaviour {
             Destroy(gameObject);
         }
         FinishDialogueBox();
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -630,9 +708,15 @@ public class DialogueController : MonoBehaviour {
     {
         HumanFatherAtPhone.SetActive(true);
         _player.GetComponent<SpriteRenderer>().enabled = false;
+        _player.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        //_player.GetComponentInChildren<SpriteRenderer>().enabled = false;
     }
     private void ShowPlayer()
     {
+        if (PhoneBlockade)
+        {
+            PhoneBlockade.SetActive(false);
+        }
         if (GameObject.Find("Spirit Father Block"))
         {
             Destroy(GameObject.Find("Spirit Father Block").gameObject);
@@ -640,5 +724,6 @@ public class DialogueController : MonoBehaviour {
         PlayerController.IsPlayerHiding = false;
         PlayerController.IsTeleportingPlayer = false;
         _player.GetComponent<SpriteRenderer>().enabled = true;
+        _player.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
     }
 }
