@@ -45153,7 +45153,7 @@ MonoBehaviour:
   DialogueItemPreview: {fileID: 0}
   DialogueTitle: Mother
   DialogueArray:
-  - Don't even think about leaving your quarters.
+  - Thank you... you found my hamster! You can go off for today darling.
   IsObjectItem: 0
   GrayscaleWalls: {fileID: 0}
   GrayscaleTiles: {fileID: 0}
@@ -45346,7 +45346,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827397558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 120.13, y: 36.95, z: 0}
+  m_LocalPosition: {x: 129.01, y: 23.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -45373,7 +45373,7 @@ MonoBehaviour:
   TimeUntilSentBack: 10
   IsJaneDoorOpened: 0
   IsBedChecked: 0
-  IsBoxChcked: 0
+  IsBoxChecked: 0
   JaneBlockedDoor: {fileID: 2094552520}
   IsNecklaceFound: 0
 --- !u!50 &1827397561

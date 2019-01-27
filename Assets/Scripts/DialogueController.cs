@@ -78,6 +78,7 @@ public class DialogueController : MonoBehaviour {
 
         _playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         _playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        _playerScript.IsNecklaceFound = true;
 
         DialogueContainerScript = GameObject.FindGameObjectWithTag("Dialogue Container").GetComponent<DialogueContainer>();
 
@@ -156,6 +157,25 @@ public class DialogueController : MonoBehaviour {
                 PlayerController.IsCharacterInADialogue = true;
                 return;
             }
+        }
+
+        if (_playerScript.IsNecklaceFound == false &&
+            gameObject.transform.name == "Spirit Mother")
+        {
+            DialogueContainerScript.DisplayDialogueBox(
+                DialoguePortrait,
+                DialogueBackground,
+                DialogueTitle,
+                "Don't even think about leaving your quarters.",
+                IsObjectItem,
+                null);
+
+            CurrentDialogueIndex += 2;
+
+            DialogueContainerScript.IsDialogueTextLoaded = false;
+            IsDialogueBoxInitiated = true;
+            PlayerController.IsCharacterInADialogue = true;
+            return;
         }
 
         for (int i = 0; i < DialogueArray.Length; i++)
@@ -332,7 +352,6 @@ public class DialogueController : MonoBehaviour {
             PlayerController.IsTeleportingPlayer == false &&
             Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(CurrentDialogueIndex + " " + (DialogueArray.Length));
             if (CurrentDialogueIndex >= DialogueArray.Length)
             {
                 FinishDialogueBox();
@@ -343,6 +362,11 @@ public class DialogueController : MonoBehaviour {
                     Destroy(gameObject);
                 }
 
+                if (gameObject.transform.name == "Spirit Mother" && _playerScript.IsNecklaceFound)
+                {
+                    Invoke("RemoveDialogueAndObject", 3f);
+                }
+
                 if (gameObject.transform.name == "Parents Bed")
                 {
                     _playerScript.IsBedChecked = true;
@@ -351,11 +375,29 @@ public class DialogueController : MonoBehaviour {
                 {
                     _playerScript.IsBoxChecked = true;
                 }
+                if (gameObject.transform.name == "Toilet" &&
+                    _playerScript.IsBedChecked &&
+                    _playerScript.IsBoxChecked)
+                {
+                    _playerScript.IsNecklaceFound = true;
+                }
 
                 _playerAnimator.SetBool("Is Player Idle", true);
                 ContinueDialogue();
             }
         }
+    }
+
+    private void RemoveDialogueAndObject()
+    {
+        // The mother dissapears in both spirit and human form.
+        if (GameObject.Find("Human Mother") != null)
+        {
+            Destroy(GameObject.Find("Human Mother"));
+        }
+
+        FinishDialogueBox();
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
