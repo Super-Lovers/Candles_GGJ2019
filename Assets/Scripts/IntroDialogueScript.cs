@@ -142,7 +142,6 @@ public class IntroDialogueScript : MonoBehaviour
                     _optionTwo.color = new Color(0, 0, 0, 0.7f);
                 }
 
-
                 if (DialogueStructure[i].Length > 4)
                 {
                     StartCoroutine(UpdateDialogueText((string)DialogueStructure[i][3]));

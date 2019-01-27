@@ -17,6 +17,17 @@ public class PlayerController : MonoBehaviour {
 
     public int TimeUntilSentBack;
 
+    // ****************************
+    // Player Levels variables
+    // *** Puzzle in Jane's room
+    public bool IsJaneDoorOpened = false;
+    public bool IsBedChecked = false;
+    public bool IsBoxChecked = false;
+    public GameObject JaneBlockedDoor;
+
+    // ** Room where you find the box
+    public bool IsNecklaceFound = false;
+
 	void Start () {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();

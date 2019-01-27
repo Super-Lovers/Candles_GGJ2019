@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class FadeController : MonoBehaviour {
     private Animator _animator;
+    private GameObject _player;
+    private GameObject _returnPoint;
 
 	void Start () {
         _animator = GetComponent<Animator>();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _returnPoint = GameObject.Find("Origin point");
 	}
 
     public void StartFade()
@@ -17,6 +21,13 @@ public class FadeController : MonoBehaviour {
 
     public void HideFade()
     {
+        if (PlayerController.IsTeleportingPlayer)
+        {
+            Vector3 newPlayerPosition = _player.transform.position;
+            newPlayerPosition = _returnPoint.transform.position;
+            _player.transform.position = newPlayerPosition;
+        }
+
         _animator.SetBool("canFadeOut", true);
         Invoke("SetDefaultState", 0.5f);
     }

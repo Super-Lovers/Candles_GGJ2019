@@ -7,6 +7,7 @@ public class DialogueContainer : MonoBehaviour {
     public GameObject CharacterBackground;
     public GameObject ItemBackground;
     public GameObject ItemDialogueText;
+    public GameObject ItemDialoguePreview;
     public GameObject Portrait;
     public GameObject DialogueTitle;
     public GameObject DialogueText;
@@ -24,7 +25,7 @@ public class DialogueContainer : MonoBehaviour {
         _itemDialogueTextComponent = ItemDialogueText.GetComponent<Text>();
     }
 
-    public void DisplayDialogueBox(Sprite portrait, Sprite background, string dialogueTitle, string dialogueText, bool isObjectItem)
+    public void DisplayDialogueBox(Sprite portrait, Sprite background, string dialogueTitle, string dialogueText, bool isObjectItem, Sprite dialogueItemPreview)
     {
         // Updating the dialogue elements
         if (portrait == null)
@@ -33,6 +34,15 @@ public class DialogueContainer : MonoBehaviour {
             ItemBackground.GetComponent<Image>().color = new Color(255, 255, 255, 1);
             Portrait.GetComponent<Image>().color = new Color(255, 255, 255, 0);
             _dialogueTitleTextComponent.text = string.Empty;
+            if (dialogueItemPreview != null)
+            {
+                ItemDialoguePreview.GetComponent<Image>().sprite = dialogueItemPreview;
+                ItemDialoguePreview.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+            } else
+            {
+                ItemDialoguePreview.GetComponent<Image>().sprite = null;
+                ItemDialoguePreview.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            }
         } else
         {
             CharacterBackground.GetComponent<Image>().sprite = background;
@@ -83,6 +93,8 @@ public class DialogueContainer : MonoBehaviour {
         CharacterBackground.GetComponent<Image>().color = new Color(255, 255, 255, 0);
         ItemBackground.GetComponent<Image>().sprite = null;
         ItemBackground.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+        ItemDialoguePreview.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+        ItemDialoguePreview.GetComponent<Image>().sprite = null;
         _dialogueTitleTextComponent.text = string.Empty;
         _dialogueTextComponent.text = string.Empty;
         _itemDialogueTextComponent.text = string.Empty;
