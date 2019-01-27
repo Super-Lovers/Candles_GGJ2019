@@ -363,6 +363,11 @@ public class DialogueController : MonoBehaviour {
             }
         }
 
+        if (GameObject.Find("Spirit Mother").GetComponent<CapsuleCollider2D>().enabled == false)
+        {
+            Destroy(GameObject.Find("Human Mother").gameObject);
+        }
+
         _playerLight.SetActive(false);
         _directionalLight.SetActive(true);
 
@@ -377,7 +382,6 @@ public class DialogueController : MonoBehaviour {
     
     private void OnTriggerStay2D(Collider2D collision)
     {
-
         if (PlayerController.IsPlayerSpooky)
         {
             if (collision.transform.name == "Player" &&
@@ -427,7 +431,8 @@ public class DialogueController : MonoBehaviour {
                 }
                 if (gameObject.transform.name == "Toilet" &&
                     _playerScript.IsBedChecked &&
-                    _playerScript.IsBoxChecked)
+                    _playerScript.IsBoxChecked &&
+                    PlayerController.IsPlayerSpooky)
                 {
                     _playerScript.IsNecklaceFound = true;
                 }
@@ -480,7 +485,11 @@ public class DialogueController : MonoBehaviour {
             gameObject.transform.name == "Spirit Father")
         {
             _playerAnimator.SetBool("Is Player Idle", true);
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             ContinueDialogue();
+
+            Invoke("RemoveDialogueAndObject", 2.5f);
         }
     }
 
