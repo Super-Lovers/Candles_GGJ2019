@@ -39,6 +39,9 @@ public class DialogueController : MonoBehaviour {
     public GameObject[] SpiritRealmObjects;
     public GameObject[] HumanRealmObjects;
     public Sprite SpiritMotherBlockSprite;
+    public Sprite SpiritFatherBlockSprite;
+    public Sprite SpiritFatherWorkplaceBlockSprite;
+    public GameObject HumanFatherAtPhone;
 
     // **************************
     // Dialogue Paramteres
@@ -46,6 +49,10 @@ public class DialogueController : MonoBehaviour {
     
 	void Start ()
     {
+        if (HumanFatherAtPhone)
+        {
+            HumanFatherAtPhone.SetActive(false);
+        }
         _fadeControllerScript = GameObject.FindGameObjectWithTag("Transitioner").GetComponent<FadeController>();
 
         if (Timer != null)
@@ -56,14 +63,19 @@ public class DialogueController : MonoBehaviour {
 
         foreach (GameObject spiritRealmObject in SpiritRealmObjects)
         {
-            if (spiritRealmObject.name == "Spirit Mother" ||
+            if (spiritRealmObject)
+            {
+                if (spiritRealmObject.name == "Spirit Mother" ||
+                    spiritRealmObject.name == "Spirit Father Block" ||
+                    spiritRealmObject.name == "Spirit Father Block Workplace" ||
                 spiritRealmObject.name == "Spirit Mother Kitchen")
-            {
-                spiritRealmObject.GetComponent<SpriteRenderer>().sprite = null;
-            }
-            else
-            {
-                spiritRealmObject.SetActive(false);
+                {
+                    spiritRealmObject.GetComponent<SpriteRenderer>().sprite = null;
+                }
+                else
+                {
+                    spiritRealmObject.SetActive(false);
+                }
             }
         }
 
@@ -114,6 +126,46 @@ public class DialogueController : MonoBehaviour {
             DialogueContainerScript.IsDialogueTextLoaded = true;
             return;
         }
+        
+        if (gameObject.transform.name == "Phone" &&
+            (_playerScript.IsBedChecked == false ||
+            _playerScript.IsBoxChecked == false ||
+            _playerScript.IsNecklaceFound == false ||
+            _playerScript.IsAlarmActive == false))
+        {
+            DialogueContainerScript.DisplayDialogueBox(
+                DialoguePortrait,
+                DialogueBackground,
+                DialogueTitle,
+                "This is your brother's phone.",
+                IsObjectItem,
+                null);
+
+            // This makes sure it wont let you click space again
+            // for a new dialogue to pop up.
+            CurrentDialogueIndex += 2;
+
+            DialogueContainerScript.IsDialogueTextLoaded = false;
+            IsDialogueBoxInitiated = true;
+            PlayerController.IsCharacterInADialogue = true;
+            return;
+        } else
+        {
+            GameObject.Find("Phone").GetComponent<Animator>().enabled = true;
+        }
+
+        if (gameObject.transform.name == "Cabinet Front Hide" &&
+            _playerScript.IsBedChecked &&
+            _playerScript.IsBoxChecked &&
+            _playerScript.IsNecklaceFound &&
+            _playerScript.IsAlarmActive)
+        {
+            _fadeControllerScript.StartFade();
+            PlayerController.IsPlayerHiding = true;
+            Invoke("HidePlayer", 0.5f);
+            Invoke("ShowPlayer", 5f);
+            return;
+        }
 
         if (gameObject.transform.name == "Toilet")
         {
@@ -161,6 +213,27 @@ public class DialogueController : MonoBehaviour {
                 PlayerController.IsCharacterInADialogue = true;
                 return;
             }
+        }
+
+        if (gameObject.transform.name == "Spirit Father Block" ||
+            gameObject.transform.name == "Spirit Father Block Workplace")
+        {
+            DialogueContainerScript.DisplayDialogueBox(
+                DialoguePortrait,
+                DialogueBackground,
+                DialogueTitle,
+                "This is not the room you are looking for.",
+                IsObjectItem,
+                null);
+
+            // This makes sure it wont let you click space again
+            // for a new dialogue to pop up.
+            CurrentDialogueIndex += 2;
+
+            DialogueContainerScript.IsDialogueTextLoaded = false;
+            IsDialogueBoxInitiated = true;
+            PlayerController.IsCharacterInADialogue = true;
+            return;
         }
 
         if (_playerScript.IsNecklaceFound == false &&
@@ -278,18 +351,31 @@ public class DialogueController : MonoBehaviour {
 
         foreach (GameObject humanRealmObject in HumanRealmObjects)
         {
-            humanRealmObject.SetActive(false);
+            if (humanRealmObject != null)
+            {
+                humanRealmObject.SetActive(false);
+            }
         }
         foreach (GameObject spiritRealmObject in SpiritRealmObjects)
         {
-            if (spiritRealmObject.name == "Spirit Mother" ||
+            if (spiritRealmObject)
+            {
+                if (spiritRealmObject.name == "Spirit Mother" ||
                 spiritRealmObject.name == "Spirit Mother Kitchen")
-            {
-                spiritRealmObject.GetComponent<SpriteRenderer>().sprite = SpiritMotherBlockSprite;
-            }
-            else
-            {
-                spiritRealmObject.SetActive(true);
+                {
+                    spiritRealmObject.GetComponent<SpriteRenderer>().sprite = SpiritMotherBlockSprite;
+                }
+                else if (spiritRealmObject.name == "Spirit Father Block")
+                {
+                    spiritRealmObject.GetComponent<SpriteRenderer>().sprite = SpiritFatherBlockSprite;
+                } else if (spiritRealmObject.name == "Spirit Father Block Workplace")
+                {
+                    spiritRealmObject.GetComponent<SpriteRenderer>().sprite = SpiritFatherWorkplaceBlockSprite;
+                }
+                else
+                {
+                    spiritRealmObject.SetActive(true);
+                }
             }
         }
 
@@ -333,16 +419,25 @@ public class DialogueController : MonoBehaviour {
 
         foreach (GameObject humanRealmObject in HumanRealmObjects)
         {
-            humanRealmObject.SetActive(true);
+            if (humanRealmObject)
+            {
+                humanRealmObject.SetActive(true);
+            }
         }
         foreach (GameObject spiritRealmObject in SpiritRealmObjects)
         {
-            if (spiritRealmObject.name == "Spirit Mother")
+            if (spiritRealmObject)
             {
-                spiritRealmObject.GetComponent<SpriteRenderer>().sprite = null;
-            } else
-            {
-                spiritRealmObject.SetActive(false);
+                if (spiritRealmObject.name == "Spirit Mother" ||
+                spiritRealmObject.name == "Spirit Father Block" ||
+                spiritRealmObject.name == "Spirit Father Block Workplace")
+                {
+                    spiritRealmObject.GetComponent<SpriteRenderer>().sprite = null;
+                }
+                else
+                {
+                    spiritRealmObject.SetActive(false);
+                }
             }
         }
 
@@ -529,5 +624,21 @@ public class DialogueController : MonoBehaviour {
         }
 
         ReturnToHumanRealm();
+    }
+
+    private void HidePlayer()
+    {
+        HumanFatherAtPhone.SetActive(true);
+        _player.GetComponent<SpriteRenderer>().enabled = false;
+    }
+    private void ShowPlayer()
+    {
+        if (GameObject.Find("Spirit Father Block"))
+        {
+            Destroy(GameObject.Find("Spirit Father Block").gameObject);
+        }
+        PlayerController.IsPlayerHiding = false;
+        PlayerController.IsTeleportingPlayer = false;
+        _player.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

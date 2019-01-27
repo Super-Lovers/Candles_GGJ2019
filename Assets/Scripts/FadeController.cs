@@ -21,7 +21,7 @@ public class FadeController : MonoBehaviour {
 
     public void HideFade()
     {
-        if (PlayerController.IsTeleportingPlayer)
+        if (PlayerController.IsTeleportingPlayer && PlayerController.IsPlayerHiding == false)
         {
             Vector3 newPlayerPosition = _player.transform.position;
             newPlayerPosition = _returnPoint.transform.position;

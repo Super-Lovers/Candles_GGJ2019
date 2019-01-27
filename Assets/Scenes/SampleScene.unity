@@ -455,7 +455,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4c416f41a396fdd4a9463b7251ca5d9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8284,6 +8284,9 @@ MonoBehaviour:
   HumanRealmObjects:
   - {fileID: 242330501}
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!70 &173728951
 CapsuleCollider2D:
@@ -8636,6 +8639,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!61 &242330504
 BoxCollider2D:
@@ -8945,6 +8951,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!61 &256421661
 BoxCollider2D:
@@ -8971,6 +8980,229 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.34, y: 2.86}
   m_EdgeRadius: 0
+--- !u!1 &278701034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278701035}
+  - component: {fileID: 278701036}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &278701035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278701034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 288871730}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &278701036
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278701034}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 0
+  m_Color: {r: 0.051886797, g: 0.358423, b: 1, a: 1}
+  m_Intensity: 15
+  m_Range: 6.8381376
+  m_SpotAngle: 108
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &288871729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288871730}
+  - component: {fileID: 288871734}
+  - component: {fileID: 288871733}
+  - component: {fileID: 288871732}
+  - component: {fileID: 288871731}
+  m_Layer: 0
+  m_Name: Spirit Father Block
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &288871730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288871729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -128.606, y: -20.412, z: 0}
+  m_LocalScale: {x: 1.16271, y: 1.16271, z: 1.16271}
+  m_Children:
+  - {fileID: 278701035}
+  m_Father: {fileID: 957906217}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &288871731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288871729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f3f7b36a05ca541a53d2d1d55dbf35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentDialogueIndex: 0
+  DialoguePortrait: {fileID: 21300000, guid: 1e131541ff33d5942986bbc91b525319, type: 3}
+  DialogueBackground: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
+  DialogueItemPreview: {fileID: 0}
+  DialogueTitle: Father
+  DialogueArray:
+  - 
+  IsObjectItem: 0
+  GrayscaleWalls: {fileID: 0}
+  GrayscaleTiles: {fileID: 0}
+  DefaultTiles: {fileID: 0}
+  DefaultWalls: {fileID: 0}
+  InteriorDefaultObjects: []
+  InteriorSpookySprites: []
+  InteriorDefaultSprites: []
+  Timer: {fileID: 0}
+  SpiritRealmObjects:
+  - {fileID: 0}
+  - {fileID: 288871729}
+  HumanRealmObjects:
+  - {fileID: 0}
+  SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+    type: 3}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
+  IsDialogueBoxInitiated: 0
+--- !u!70 &288871732
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288871729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0000019073486}
+  m_Size: {x: 1.67, y: 2.45}
+  m_Direction: 0
+--- !u!61 &288871733
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288871729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.27013987, y: 0.037668943}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.03, y: 1.69}
+    newSize: {x: 1.03, y: 1.69}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7597204, y: 2.375338}
+  m_EdgeRadius: 0
+--- !u!212 &288871734
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288871729}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 2f033412bdfa29c40b22c6d0611864ad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.03, y: 1.69}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &288986184
 GameObject:
   m_ObjectHideFlags: 0
@@ -25200,7 +25432,7 @@ Prefab:
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
       propertyPath: SpiritRealmObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4264376698870878, guid: e6881760d50789443b8c21d91123c421, type: 2}
       propertyPath: m_LocalPosition.x
@@ -25550,6 +25782,33 @@ Prefab:
       propertyPath: HumanMotherBlock
       value: 
       objectReference: {fileID: 242330501}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherBlockSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 288871729}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: HumanFatherAtPhone
+      value: 
+      objectReference: {fileID: 617427536}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 650697072}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherWorkplaceBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -25822,7 +26081,7 @@ Prefab:
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
       propertyPath: SpiritRealmObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
@@ -26542,6 +26801,33 @@ Prefab:
       propertyPath: HumanMotherBlock
       value: 
       objectReference: {fileID: 242330501}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherBlockSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 288871729}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: HumanFatherAtPhone
+      value: 
+      objectReference: {fileID: 617427536}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 650697072}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherWorkplaceBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -26715,6 +27001,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23531a1bca003144ae1e9caa6340592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &617427536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617427537}
+  - component: {fileID: 617427539}
+  - component: {fileID: 617427538}
+  m_Layer: 0
+  m_Name: Human Father At Alarm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &617427537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617427536}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.6, y: -10.794, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 957906217}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &617427538
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617427536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04232025, y: -1.641088}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.03, y: 1.69}
+    newSize: {x: 0.62, y: 0.77}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.026062, y: 5.135482}
+  m_EdgeRadius: 0
+--- !u!212 &617427539
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617427536}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 2f033412bdfa29c40b22c6d0611864ad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 21300020, guid: 0986d305e6c2d78479f71bde1e6d629b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.62, y: 0.77}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &643788585
 GameObject:
   m_ObjectHideFlags: 0
@@ -26750,6 +27137,163 @@ RectTransform:
   m_AnchoredPosition: {x: -349, y: 214}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &650697072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 650697073}
+  - component: {fileID: 650697077}
+  - component: {fileID: 650697076}
+  - component: {fileID: 650697075}
+  - component: {fileID: 650697074}
+  m_Layer: 0
+  m_Name: Spirit Father Block Workplace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &650697073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650697072}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -147.26, y: -19.643, z: 0}
+  m_LocalScale: {x: 1.16271, y: 1.16271, z: 1.16271}
+  m_Children:
+  - {fileID: 1263903902}
+  m_Father: {fileID: 957906217}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &650697074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650697072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f3f7b36a05ca541a53d2d1d55dbf35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentDialogueIndex: 0
+  DialoguePortrait: {fileID: 21300000, guid: 1e131541ff33d5942986bbc91b525319, type: 3}
+  DialogueBackground: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
+  DialogueItemPreview: {fileID: 0}
+  DialogueTitle: Father
+  DialogueArray:
+  - 
+  IsObjectItem: 0
+  GrayscaleWalls: {fileID: 0}
+  GrayscaleTiles: {fileID: 0}
+  DefaultTiles: {fileID: 0}
+  DefaultWalls: {fileID: 0}
+  InteriorDefaultObjects: []
+  InteriorSpookySprites: []
+  InteriorDefaultSprites: []
+  Timer: {fileID: 0}
+  SpiritRealmObjects:
+  - {fileID: 0}
+  - {fileID: 650697072}
+  HumanRealmObjects:
+  - {fileID: 0}
+  SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+    type: 3}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
+  IsDialogueBoxInitiated: 0
+--- !u!70 &650697075
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650697072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0000019073486}
+  m_Size: {x: 1.67, y: 2.45}
+  m_Direction: 0
+--- !u!61 &650697076
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650697072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.27013987, y: 0.037668943}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.03, y: 1.69}
+    newSize: {x: 1.03, y: 1.69}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7597204, y: 2.375338}
+  m_EdgeRadius: 0
+--- !u!212 &650697077
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650697072}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 2f033412bdfa29c40b22c6d0611864ad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.03, y: 1.69}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &663771376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1604036018730788, guid: 93cdd2a79bb4c2c4697dfbf004bfb28a,
@@ -26966,6 +27510,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!1001 &719822970
 Prefab:
@@ -27448,8 +27995,10 @@ GameObject:
   - component: {fileID: 847494737}
   - component: {fileID: 847494739}
   - component: {fileID: 847494738}
+  - component: {fileID: 847494740}
+  - component: {fileID: 847494741}
   m_Layer: 0
-  m_Name: Cabinet Front
+  m_Name: Cabinet Front Hide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27539,6 +28088,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &847494740
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847494736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03778839, y: -0.02699399}
+  m_Size: {x: 2.9602509, y: 2.9602509}
+  m_Direction: 0
+--- !u!114 &847494741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847494736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f3f7b36a05ca541a53d2d1d55dbf35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentDialogueIndex: 0
+  DialoguePortrait: {fileID: 0}
+  DialogueBackground: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
+  DialogueItemPreview: {fileID: 0}
+  DialogueTitle: 
+  DialogueArray:
+  - You decide to hide in the closet.
+  IsObjectItem: 1
+  GrayscaleWalls: {fileID: 0}
+  GrayscaleTiles: {fileID: 0}
+  DefaultTiles: {fileID: 0}
+  DefaultWalls: {fileID: 0}
+  InteriorDefaultObjects: []
+  InteriorSpookySprites: []
+  InteriorDefaultSprites: []
+  Timer: {fileID: 0}
+  SpiritRealmObjects: []
+  HumanRealmObjects: []
+  SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 617427536}
+  IsDialogueBoxInitiated: 0
 --- !u!1001 &853211262
 Prefab:
   m_ObjectHideFlags: 0
@@ -27903,6 +28501,10 @@ Transform:
   - {fileID: 1990383708}
   - {fileID: 322445604}
   - {fileID: 796400937}
+  - {fileID: 288871730}
+  - {fileID: 1190908951}
+  - {fileID: 617427537}
+  - {fileID: 650697073}
   m_Father: {fileID: 723946595}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36287,6 +36889,177 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1190908950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1190908951}
+  - component: {fileID: 1190908953}
+  - component: {fileID: 1190908955}
+  - component: {fileID: 1190908952}
+  - component: {fileID: 1190908954}
+  - component: {fileID: 1190908956}
+  m_Layer: 0
+  m_Name: Phone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1190908951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190908950}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22.49, y: -10.858, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 957906217}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1190908952
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190908950}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.525, y: 0.37}
+    newSize: {x: 1.92, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.17, y: 2.56}
+  m_EdgeRadius: 0
+--- !u!212 &1190908953
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190908950}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 2f033412bdfa29c40b22c6d0611864ad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: de1cbd9af85add04fb83eea788cac9d5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.92, y: 2.56}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1190908954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190908950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f3f7b36a05ca541a53d2d1d55dbf35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentDialogueIndex: 0
+  DialoguePortrait: {fileID: 0}
+  DialogueBackground: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
+  DialogueItemPreview: {fileID: 0}
+  DialogueTitle: 
+  DialogueArray:
+  - You activate the alarm to lure your father into the room...
+  IsObjectItem: 1
+  GrayscaleWalls: {fileID: 0}
+  GrayscaleTiles: {fileID: 0}
+  DefaultTiles: {fileID: 0}
+  DefaultWalls: {fileID: 0}
+  InteriorDefaultObjects: []
+  InteriorSpookySprites: []
+  InteriorDefaultSprites: []
+  Timer: {fileID: 0}
+  SpiritRealmObjects: []
+  HumanRealmObjects: []
+  SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
+  IsDialogueBoxInitiated: 0
+--- !u!70 &1190908955
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190908950}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06487656, y: 0.043252468}
+  m_Size: {x: 2.0235977, y: 2.5750647}
+  m_Direction: 0
+--- !u!95 &1190908956
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190908950}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e25fa69a1cf8f35429505fff7e09a2a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1191926353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1071704216917310, guid: e72c8aac6adc12240892236bb07ed380,
@@ -36381,7 +37154,7 @@ Prefab:
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
       propertyPath: SpiritRealmObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
@@ -37105,6 +37878,33 @@ Prefab:
       propertyPath: HumanMotherBlock
       value: 
       objectReference: {fileID: 242330501}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherBlockSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 288871729}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: HumanFatherAtPhone
+      value: 
+      objectReference: {fileID: 617427536}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 650697072}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherWorkplaceBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -37343,6 +38143,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!61 &1262641360
 BoxCollider2D:
@@ -37502,6 +38305,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!70 &1263133308
 CapsuleCollider2D:
@@ -37589,6 +38395,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1263903901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263903902}
+  - component: {fileID: 1263903903}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263903902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263903901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 650697073}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1263903903
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263903901}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 0
+  m_Color: {r: 0.051886797, g: 0.358423, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 6.8381376
+  m_SpotAngle: 108
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1275831288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1501813778944144, guid: 6296c5d17010b3e4d8111332b1adb482,
@@ -41580,7 +42452,7 @@ Prefab:
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
       propertyPath: SpiritRealmObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
@@ -42300,6 +43172,33 @@ Prefab:
       propertyPath: HumanMotherBlock
       value: 
       objectReference: {fileID: 242330501}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherBlockSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 288871729}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: HumanFatherAtPhone
+      value: 
+      objectReference: {fileID: 617427536}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 650697072}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherWorkplaceBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -46144,7 +47043,7 @@ Prefab:
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
       propertyPath: SpiritRealmObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4264376698870878, guid: e6881760d50789443b8c21d91123c421, type: 2}
       propertyPath: m_LocalPosition.x
@@ -46498,6 +47397,33 @@ Prefab:
       propertyPath: HumanMotherBlock
       value: 
       objectReference: {fileID: 242330501}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherBlockSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 288871729}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: HumanFatherAtPhone
+      value: 
+      objectReference: {fileID: 617427536}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 650697072}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherWorkplaceBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -46544,7 +47470,7 @@ MonoBehaviour:
     type: 3}
   JaneDialogueBackground: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93,
     type: 3}
-  IsIntroEnded: 0
+  IsIntroEnded: 1
 --- !u!224 &1762461057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46632,6 +47558,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!61 &1771573439
 BoxCollider2D:
@@ -46918,6 +47847,9 @@ MonoBehaviour:
   HumanRealmObjects:
   - {fileID: 242330501}
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!70 &1819349889
 CapsuleCollider2D:
@@ -47086,7 +48018,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827397558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.595, y: -5.235, z: 0}
+  m_LocalPosition: {x: -17.917, y: 2.399, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -47111,11 +48043,12 @@ MonoBehaviour:
   DefaultAnimator: {fileID: 9100000, guid: 15646da3f2dd0fa4794f855417826731, type: 2}
   SpookyAnimator: {fileID: 9100000, guid: 72b7716dfc625c4408203f3afc4724d7, type: 2}
   TimeUntilSentBack: 10
-  IsJaneDoorOpened: 1
-  IsBedChecked: 1
-  IsBoxChecked: 1
+  IsJaneDoorOpened: 0
+  IsBedChecked: 0
+  IsBoxChecked: 0
+  IsAlarmActive: 0
   JaneBlockedDoor: {fileID: 2094552520}
-  IsNecklaceFound: 1
+  IsNecklaceFound: 0
 --- !u!50 &1827397561
 Rigidbody2D:
   serializedVersion: 4
@@ -47233,6 +48166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1848361232}
+  - component: {fileID: 1848361233}
   m_Layer: 0
   m_Name: Origin point
   m_TagString: Untagged
@@ -47253,6 +48187,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1848361233
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1848361231}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1850702539
 GameObject:
   m_ObjectHideFlags: 0
@@ -47861,6 +48841,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!61 &2002102561
 BoxCollider2D:
@@ -48285,6 +49268,9 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritFatherBlockSprite: {fileID: 0}
+  SpiritFatherWorkplaceBlockSprite: {fileID: 0}
+  HumanFatherAtPhone: {fileID: 0}
   IsDialogueBoxInitiated: 0
 --- !u!58 &2094552523
 CircleCollider2D:
@@ -48341,7 +49327,7 @@ Prefab:
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
       propertyPath: SpiritRealmObjects.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
         type: 2}
@@ -49065,6 +50051,33 @@ Prefab:
       propertyPath: HumanMotherBlock
       value: 
       objectReference: {fileID: 242330501}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherBlockSprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 288871729}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: HumanFatherAtPhone
+      value: 
+      objectReference: {fileID: 617427536}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritRealmObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 650697072}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritFatherWorkplaceBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0

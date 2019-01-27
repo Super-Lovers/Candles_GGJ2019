@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D _rigidbody;
     public static bool IsCharacterInADialogue = false;
     public static bool IsTeleportingPlayer = false;
+    public static bool IsPlayerHiding = false;
     public IntroDialogueScript IntroDialogueScript;
 
     public static bool IsPlayerSpooky = false;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
     public bool IsJaneDoorOpened = false;
     public bool IsBedChecked = false;
     public bool IsBoxChecked = false;
+    public bool IsAlarmActive = false;
     public GameObject JaneBlockedDoor;
 
     // ** Room where you find the box
@@ -39,7 +41,8 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
         if (IsCharacterInADialogue == false &&
             IsTeleportingPlayer == false &&
-            IntroDialogueScript.IsIntroEnded == true)
+            IntroDialogueScript.IsIntroEnded == true &&
+            IsPlayerHiding == false)
         {
             float horizontalMovement = Input.GetAxisRaw("Horizontal");
             float verticalMovement = Input.GetAxisRaw("Vertical");
