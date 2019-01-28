@@ -7,6 +7,7 @@ with her family and to cope, she decides it is time to go, and so your adventure
 Controls:
 
 [WSAD] or Arrow keys for movement.
+
 Key [E] to interact with in-game objects.
 
 Credits:
