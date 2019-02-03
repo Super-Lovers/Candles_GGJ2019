@@ -39,6 +39,7 @@ public class DialogueController : MonoBehaviour {
     public GameObject[] SpiritRealmObjects;
     public GameObject[] HumanRealmObjects;
     public Sprite SpiritMotherBlockSprite;
+    public Sprite SpiritMotherKitchenBlockSprite;
     public Sprite SpiritFatherBlockSprite;
     public Sprite SpiritFatherWorkplaceBlockSprite;
     public GameObject HumanFatherAtPhone;
@@ -401,10 +402,12 @@ public class DialogueController : MonoBehaviour {
         {
             if (spiritRealmObject)
             {
-                if (spiritRealmObject.name == "Spirit Mother" ||
-                spiritRealmObject.name == "Spirit Mother Kitchen")
+                if (spiritRealmObject.name == "Spirit Mother")
                 {
                     spiritRealmObject.GetComponent<SpriteRenderer>().sprite = SpiritMotherBlockSprite;
+                } else if (spiritRealmObject.name == "Spirit Mother Kitchen")
+                {
+                    spiritRealmObject.GetComponent<SpriteRenderer>().sprite = SpiritMotherKitchenBlockSprite;
                 }
                 else if (spiritRealmObject.name == "Spirit Father Block")
                 {

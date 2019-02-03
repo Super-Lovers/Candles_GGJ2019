@@ -8403,7 +8403,8 @@ MonoBehaviour:
   DialogueItemPreview: {fileID: 0}
   DialogueTitle: Mother
   DialogueArray:
-  - living room
+  - I can tell you're looking for something... why don't you try to look for you brother
+    to help?
   IsObjectItem: 0
   PlayerLight: {fileID: 0}
   GrayscaleWalls: {fileID: 0}
@@ -8419,6 +8420,7 @@ MonoBehaviour:
   HumanRealmObjects:
   - {fileID: 242330501}
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -8809,6 +8811,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -9123,6 +9126,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -9418,6 +9422,7 @@ MonoBehaviour:
   HumanRealmObjects:
   - {fileID: 0}
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 21300002, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
     type: 3}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
@@ -27146,6 +27151,12 @@ Prefab:
       propertyPath: InteriorDefaultObjects.Array.data[70]
       value: 
       objectReference: {fileID: 1555416437}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritMotherKitchenBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: c00a69b26c1f4e5479b3c0d30197ac2a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -27591,6 +27602,7 @@ MonoBehaviour:
   HumanRealmObjects:
   - {fileID: 0}
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 21300016, guid: 5fe96cd5f901cbe4b9ea24e32a249b10,
     type: 3}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
@@ -27900,6 +27912,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -28808,6 +28821,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 617427536}
@@ -37929,6 +37943,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -38395,6 +38410,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -38559,6 +38575,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -39036,6 +39053,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -43995,6 +44013,12 @@ Prefab:
       propertyPath: InteriorDefaultObjects.Array.data[70]
       value: 
       objectReference: {fileID: 1555416437}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritMotherKitchenBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: c00a69b26c1f4e5479b3c0d30197ac2a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -44217,6 +44241,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -48674,6 +48699,12 @@ Prefab:
       propertyPath: InteriorDefaultObjects.Array.data[70]
       value: 
       objectReference: {fileID: 1555416437}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritMotherKitchenBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: c00a69b26c1f4e5479b3c0d30197ac2a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
@@ -48809,6 +48840,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -49100,6 +49132,7 @@ MonoBehaviour:
   HumanRealmObjects:
   - {fileID: 242330501}
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -49272,7 +49305,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827397558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.55, y: -5.31, z: 0}
+  m_LocalPosition: {x: 18.51, y: -5.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -50310,6 +50343,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -50802,6 +50836,7 @@ MonoBehaviour:
   SpiritRealmObjects: []
   HumanRealmObjects: []
   SpiritMotherBlockSprite: {fileID: 0}
+  SpiritMotherKitchenBlockSprite: {fileID: 0}
   SpiritFatherBlockSprite: {fileID: 0}
   SpiritFatherWorkplaceBlockSprite: {fileID: 0}
   HumanFatherAtPhone: {fileID: 0}
@@ -51815,6 +51850,12 @@ Prefab:
       propertyPath: InteriorDefaultObjects.Array.data[70]
       value: 
       objectReference: {fileID: 1555416437}
+    - target: {fileID: 114060732301397478, guid: e6881760d50789443b8c21d91123c421,
+        type: 2}
+      propertyPath: SpiritMotherKitchenBlockSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: c00a69b26c1f4e5479b3c0d30197ac2a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6881760d50789443b8c21d91123c421, type: 2}
   m_IsPrefabAsset: 0
