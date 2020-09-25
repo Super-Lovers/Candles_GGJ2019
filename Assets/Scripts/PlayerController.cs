@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour {
     private RuntimeAnimatorController ghost_animator;
     private Animator animator;
 
-    // Player character parameters
-    private Realm current_realm;
-    private int realm_countdown = 15;
+    // Interaction parameters
+    private bool is_within_interactable = false;
+    private IInteractable current_interactable;
 
 	void Start () {
         animator = GetComponent<Animator>();
@@ -21,8 +21,16 @@ public class PlayerController : MonoBehaviour {
 
         animator.SetBool("Is Player Idle", true);
     }
-	
-	void FixedUpdate () {
+
+    private void Update() {
+        if (is_within_interactable) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                current_interactable.Action();
+            }
+        }
+    }
+
+    void FixedUpdate () {
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
         float verticalMovement = Input.GetAxisRaw("Vertical");
 
@@ -51,5 +59,21 @@ public class PlayerController : MonoBehaviour {
             new Vector3(
                 horizontalMovement * (movement_speed),
                 verticalMovement * (movement_speed), 0));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("candle")) {
+            is_within_interactable = true;
+
+            current_interactable = collision.gameObject.GetComponent<Interactable_Candle>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("candle")) {
+            is_within_interactable = false;
+
+            current_interactable = null;
+        }
     }
 }

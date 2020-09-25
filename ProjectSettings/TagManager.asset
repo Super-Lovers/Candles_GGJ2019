@@ -4,23 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Dialogue Container
-  - New Destination
-  - Door
-  - Transitioner
-  - Option 1
-  - Option 2
-  - Intro Container
-  - Candle
-  - Spooky Light
-  - Sun
-  - Grayscale Tiles
-  - Grayscale Walls
-  - Default Tiles
-  - Default Walls
-  - Interior Object
-  - Intro Objects
   - player_starting_position
+  - candle
   layers:
   - Default
   - TransparentFX

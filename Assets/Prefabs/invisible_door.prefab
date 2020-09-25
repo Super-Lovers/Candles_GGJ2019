@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 212687518664569508}
   - component: {fileID: 61926499042793612}
   - component: {fileID: 114611285992470406}
+  - component: {fileID: 7980122316123082676}
   m_Layer: 0
   m_Name: invisible_door
-  m_TagString: Interior Object
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +122,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   new_position: {fileID: 1702392980718000}
+--- !u!114 &7980122316123082676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286867360381128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644e7875b3f7d7646af5c24c1ae17ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  human_realm_sprite: {fileID: 21300000, guid: 2fbed1818792f5148ab1a22822860912, type: 3}
+  ghost_realm_sprite: {fileID: 21300000, guid: d7f477a117c54704185036cdab8e3055, type: 3}
 --- !u!1 &1702392980718000
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +149,7 @@ GameObject:
   - component: {fileID: 129568902619419515}
   m_Layer: 0
   m_Name: new_position
-  m_TagString: New Destination
+  m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
