@@ -27,9 +27,17 @@ public class DialogueController : MonoBehaviour {
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (is_dialogue_text_loaded) { 
-                LoadPassage(current_passage_index);
-                current_passage_index++;
+                if (current_passage_index == current_dialogue.passages.Count) {
+                    EndDialogue();
+                } else {
+                    LoadPassage(current_passage_index);
+                    current_passage_index++;
+                }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+
         }
     }
 
@@ -42,6 +50,11 @@ public class DialogueController : MonoBehaviour {
     }
 
     private void LoadPassage(int index) {
+        if (index == 0) {
+            character_portrait.color = new Color(1, 1, 1, 1);
+            passage_box.color = new Color(1, 1, 1, 1);
+        }
+
         var passage = current_dialogue.passages[index];
         UpdateColorOfPassageText(passage);
         UpdateDialogueSprites(passage);
@@ -64,5 +77,33 @@ public class DialogueController : MonoBehaviour {
     private void UpdateDialogueSprites(Passage passage) {
         character_portrait.sprite = passage.character_portrait;
         passage_box.sprite = passage.passage_box;
+    }
+
+    private void EndDialogue() {
+        character_portrait.sprite = null;
+        character_portrait.color = new Color(1, 1, 1, 0);
+        passage_box.sprite = null;
+        passage_box.color = new Color(1, 1, 1, 0);
+        passage_text.text = string.Empty;
+
+        current_passage_index = 0;
+
+        // ********** Conditional ********** //
+        // Moves the player in his starting position //
+        if (current_dialogue.name == "introduction") {
+            FindObjectOfType<FadeController>().StartFade();
+
+            StartCoroutine(MovePlayerToStartTheGame());
+        }
+
+        current_dialogue = null;
+    }
+
+    private IEnumerator MovePlayerToStartTheGame() {
+        yield return new WaitForSeconds(0.5f);
+
+        var player = FindObjectOfType<PlayerController>();
+        player.transform.position =
+            GameObject.FindGameObjectWithTag("player_starting_position").transform.position;
     }
 }

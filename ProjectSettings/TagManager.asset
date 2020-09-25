@@ -20,6 +20,7 @@ TagManager:
   - Default Walls
   - Interior Object
   - Intro Objects
+  - player_starting_position
   layers:
   - Default
   - TransparentFX
