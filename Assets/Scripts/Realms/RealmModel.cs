@@ -58,4 +58,8 @@ public class RealmModel : MonoBehaviour {
 
         time_passed = 0;
     }
+
+    public Realm GetCurrentRealm() {
+        return current_realm;
+    }
 }

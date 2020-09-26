@@ -72,6 +72,9 @@
     <Compile Include="Assets\Scripts\Interface\FadeController.cs" />
     <Compile Include="Assets\Scripts\Interface\InterfaceController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Quests\Quest.cs" />
+    <Compile Include="Assets\Scripts\Quests\QuestController.cs" />
+    <Compile Include="Assets\Scripts\Quests\QuestsModel.cs" />
     <Compile Include="Assets\Scripts\Realms\Furniture.cs" />
     <Compile Include="Assets\Scripts\Realms\RealmModel.cs" />
     <Compile Include="Assets\Scripts\Realms\Realms.cs" />

@@ -29,6 +29,8 @@ public class DialogueController : MonoBehaviour {
             if (is_dialogue_text_loaded) { 
                 if (current_passage_index == current_dialogue.passages.Count) {
                     EndDialogue();
+
+                    current_dialogue = null;
                 } else {
                     LoadPassage(current_passage_index);
                     current_passage_index++;
@@ -80,6 +82,8 @@ public class DialogueController : MonoBehaviour {
     }
 
     private void EndDialogue() {
+        StopAllCoroutines();
+
         character_portrait.sprite = null;
         character_portrait.color = new Color(1, 1, 1, 0);
         passage_box.sprite = null;
@@ -95,8 +99,6 @@ public class DialogueController : MonoBehaviour {
 
             StartCoroutine(MovePlayerToStartTheGame());
         }
-
-        current_dialogue = null;
     }
 
     private IEnumerator MovePlayerToStartTheGame() {
@@ -105,5 +107,17 @@ public class DialogueController : MonoBehaviour {
         var player = FindObjectOfType<PlayerController>();
         player.transform.position =
             GameObject.FindGameObjectWithTag("player_starting_position").transform.position;
+    }
+
+    public void SetCurrentDialogue(Dialogue dialogue) {
+        current_dialogue = dialogue;
+        PlayDialogue();
+    }
+
+    public void PlayDialogue() {
+        EndDialogue();
+
+        LoadPassage(current_passage_index);
+        current_passage_index++;
     }
 }

@@ -62,15 +62,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("candle")) {
+        if (collision.gameObject.CompareTag("interactable")) {
             is_within_interactable = true;
 
-            current_interactable = collision.gameObject.GetComponent<Interactable_Candle>();
+            current_interactable = collision.gameObject.GetComponent<IInteractable>();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("candle")) {
+        if (collision.gameObject.CompareTag("interactable")) {
             is_within_interactable = false;
 
             current_interactable = null;
