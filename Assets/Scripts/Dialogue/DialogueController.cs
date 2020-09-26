@@ -19,13 +19,18 @@ public class DialogueController : MonoBehaviour {
     private int current_passage_index = 0;
     private bool is_dialogue_text_loaded;
 
+    // Dependancies
+    private PlayerController player;
+
     private void Start() {
-        LoadPassage(current_passage_index);
-        current_passage_index++;
+        player = FindObjectOfType<PlayerController>();
+
+        //LoadPassage(current_passage_index);
+        //current_passage_index++;
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && current_dialogue != null) {
             if (is_dialogue_text_loaded) { 
                 if (current_passage_index == current_dialogue.passages.Count) {
                     EndDialogue();
@@ -36,10 +41,6 @@ public class DialogueController : MonoBehaviour {
                     current_passage_index++;
                 }
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.E)) {
-
         }
     }
 
@@ -52,6 +53,8 @@ public class DialogueController : MonoBehaviour {
     }
 
     private void LoadPassage(int index) {
+        player.can_move = false;
+
         if (index == 0) {
             character_portrait.color = new Color(1, 1, 1, 1);
             passage_box.color = new Color(1, 1, 1, 1);
@@ -91,6 +94,7 @@ public class DialogueController : MonoBehaviour {
         passage_text.text = string.Empty;
 
         current_passage_index = 0;
+        player.can_move = true;
 
         // ********** Conditional ********** //
         // Moves the player in his starting position //

@@ -26,15 +26,21 @@ public class QuestController : IInteractable {
         if (!AreQuestsCompleted()) { return; }
     }
 
-    private bool AreQuestsCompleted() {
+    public bool AreQuestsCompleted() {
+        // GUARDS
+        if (required_quests.Count == 0) { return true; }
+
         for (int i = 0; i < required_quests.Count; i++) {
-            if (!required_quests[i].is_completed) { return false; }
+            if (!quests_model.IsQuestCompleted(required_quests[i])) { return false; }
         }
 
         return true;
     }
 
     public void CompleteQuest() {
+        // GUARD
+        if (quests_model.IsQuestCompleted(quest_to_complete)) { return; }
+
         if (required_quests.Count > 0) {
             for (int i = 0; i < required_quests.Count; i++) {
                 if (required_quests[i] == quest_to_complete) {

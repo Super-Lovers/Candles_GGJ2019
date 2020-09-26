@@ -5,7 +5,7 @@ using UnityEngine;
 public class RealmModel : MonoBehaviour {
     private Realm current_realm;
 
-    private int realm_countdown = 3;
+    private int realm_countdown = 10;
     private float time_passed = 0;
 
     [NonSerialized]
@@ -13,6 +13,13 @@ public class RealmModel : MonoBehaviour {
 
     [SerializeField]
     private List<RealmSetting> realm_settings = new List<RealmSetting>();
+
+    // Dependancies
+    private QuestsModel quest_model;
+
+    private void Start() {
+        quest_model = FindObjectOfType<QuestsModel>();
+    }
 
     private void Update() {
         if (current_realm == Realm.Ghost) {
@@ -36,6 +43,10 @@ public class RealmModel : MonoBehaviour {
         }
 
         current_realm = new_realm;
+
+        for (int i = 0; i < quest_model.state_controllers.Count; i++) {
+            quest_model.state_controllers[i].UpdateState();
+        }
 
         for (int i = 0; i < furniture.Count; i++) {
             furniture[i].Turn(new_realm);

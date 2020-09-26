@@ -3,12 +3,18 @@
 public class FadeController : MonoBehaviour {
     private Animator animator;
 
+    // Dependancies
+    private PlayerController player;
+
 	void Start () {
+        player = FindObjectOfType<PlayerController>();
         animator = GetComponent<Animator>();
 	}
 
     public void StartFade()
     {
+        player.can_move = false;
+
         animator.SetBool("canFade", true);
         Invoke("HideFade", 0.5f);
     }
@@ -23,5 +29,7 @@ public class FadeController : MonoBehaviour {
     {
         animator.SetBool("canFade", false);
         animator.SetBool("canFadeOut", false);
+
+        player.can_move = true;
     }
 }

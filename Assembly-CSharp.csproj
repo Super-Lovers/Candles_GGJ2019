@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Dialogue\Passage.cs" />
     <Compile Include="Assets\Scripts\Interactables\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Interactables\Interactable_Candle.cs" />
+    <Compile Include="Assets\Scripts\Interactables\StateController.cs" />
     <Compile Include="Assets\Scripts\Interface\FadeController.cs" />
     <Compile Include="Assets\Scripts\Interface\InterfaceController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Realms\RealmModel.cs" />
     <Compile Include="Assets\Scripts\Realms\Realms.cs" />
     <Compile Include="Assets\Scripts\Realms\RealmSetting.cs" />
+    <Compile Include="Assets\Scripts\Realms\RealmState.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
