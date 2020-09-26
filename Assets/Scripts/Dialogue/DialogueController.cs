@@ -45,7 +45,7 @@ public class DialogueController : MonoBehaviour {
     }
 
     private void UpdateColorOfPassageText(Passage passage) {
-        if (passage.character_name == "Jane") {
+        if (passage.character.ToString() == "Jane") {
             passage_text.color = new Color(0, 0, 0, 1);
         } else {
             passage_text.color = new Color(1, 1, 1, 1);

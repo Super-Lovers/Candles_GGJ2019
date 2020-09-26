@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Dialogue\Character.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueController.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialoguePlayer.cs" />
@@ -78,8 +79,8 @@
     <Compile Include="Assets\Scripts\Quests\QuestController.cs" />
     <Compile Include="Assets\Scripts\Quests\QuestsModel.cs" />
     <Compile Include="Assets\Scripts\Realms\Furniture.cs" />
+    <Compile Include="Assets\Scripts\Realms\Realm.cs" />
     <Compile Include="Assets\Scripts\Realms\RealmModel.cs" />
-    <Compile Include="Assets\Scripts\Realms\Realms.cs" />
     <Compile Include="Assets\Scripts\Realms\RealmSetting.cs" />
     <Compile Include="Assets\Scripts\Realms\RealmState.cs" />
     <Compile Include="Assets\Scripts\Teleporter.cs" />

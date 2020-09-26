@@ -12,18 +12,21 @@ public class QuestController : IInteractable {
     private QuestsModel quests_model;
     private DialogueController dialogue_controller;
 
+    private StateController state_controller;
+
     private void Start() {
         quests_model = FindObjectOfType<QuestsModel>();
         dialogue_controller = FindObjectOfType<DialogueController>();
+        state_controller = GetComponent<StateController>();
     }
 
     public override void Action() {
+        if (!AreQuestsCompleted()) { return; }
+
         dialogue_controller.SetCurrentDialogue(quest_to_complete.dialogue);
         dialogue_controller.PlayDialogue();
 
         CompleteQuest();
-
-        if (!AreQuestsCompleted()) { return; }
     }
 
     public bool AreQuestsCompleted() {
@@ -41,14 +44,6 @@ public class QuestController : IInteractable {
         // GUARD
         if (quests_model.IsQuestCompleted(quest_to_complete)) { return; }
 
-        if (required_quests.Count > 0) {
-            for (int i = 0; i < required_quests.Count; i++) {
-                if (required_quests[i] == quest_to_complete) {
-                    quests_model.CompleteQuest(quest_to_complete);
-                }
-            }
-        } else {
-            quests_model.CompleteQuest(quest_to_complete);
-        }
+        quests_model.CompleteQuest(quest_to_complete);
     }
 }

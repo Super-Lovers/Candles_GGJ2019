@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class Passage {
     public string title;
-    public string character_name;
+    public Character character;
 
     [Space(10)]
     public Sprite character_portrait;
