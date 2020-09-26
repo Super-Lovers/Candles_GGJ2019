@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueController.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialoguePlayer.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Passage.cs" />
     <Compile Include="Assets\Scripts\Interactables\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Interactables\Interactable_Candle.cs" />

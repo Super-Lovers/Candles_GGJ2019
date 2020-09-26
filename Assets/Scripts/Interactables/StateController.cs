@@ -9,18 +9,18 @@ public class StateController : MonoBehaviour
     private RealmModel realm_model;
 
     // Components
-    private SpriteRenderer sprite_renderer;
+    private SpriteRenderer[] sprite_renderers;
     private BoxCollider2D collider;
 
     [SerializeField]
     private List<RealmState> realm_states = new List<RealmState>();
 
     private void Start() {
-        quest_controller = FindObjectOfType<QuestController>();
+        quest_controller = GetComponent<QuestController>();
         quests_model = FindObjectOfType<QuestsModel>();
         realm_model = FindObjectOfType<RealmModel>();
 
-        sprite_renderer = GetComponent<SpriteRenderer>();
+        sprite_renderers = GetComponentsInChildren<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
 
         if (!quests_model.state_controllers.Contains(this)) {
@@ -30,17 +30,23 @@ public class StateController : MonoBehaviour
 
     public void UpdateState() {
         // GUARDS
-        if (!quest_controller.AreQuestsCompleted()) { return; }
+        if (quest_controller != null && !quest_controller.AreQuestsCompleted()) { return; }
 
         for (int i = 0; i < realm_states.Count; i++) {
             if (realm_model.GetCurrentRealm() == realm_states[i].realm) {
-                quest_controller.enabled = realm_states[i].is_enabled;
+                if (quest_controller != null) {
+                    quest_controller.enabled = realm_states[i].is_enabled;
+                }
                 
                 if (!realm_states[i].is_active) {
-                    sprite_renderer.color = new Color(1, 1, 1, 0);
+                    for (int j = 0; j < sprite_renderers.Length; j++) {
+                        sprite_renderers[j].color = new Color(1, 1, 1, 0);
+                    }
                     collider.enabled = false;
                 } else {
-                    sprite_renderer.color = new Color(1, 1, 1, 1);
+                    for (int j = 0; j < sprite_renderers.Length; j++) {
+                        sprite_renderers[j].color = new Color(1, 1, 1, 1);
+                    }
                     collider.enabled = true;
                 }
 
