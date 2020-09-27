@@ -21,6 +21,7 @@ public class DialogueController : MonoBehaviour {
 
     // Dependancies
     private PlayerController player;
+    private QuestController current_quest_controller;
 
     private void Start() {
         player = FindObjectOfType<PlayerController>();
@@ -34,8 +35,6 @@ public class DialogueController : MonoBehaviour {
             if (is_dialogue_text_loaded) { 
                 if (current_passage_index == current_dialogue.passages.Count) {
                     EndDialogue();
-
-                    current_dialogue = null;
                 } else {
                     LoadPassage(current_passage_index);
                     current_passage_index++;
@@ -94,7 +93,18 @@ public class DialogueController : MonoBehaviour {
         passage_text.text = string.Empty;
 
         current_passage_index = 0;
+
         player.can_move = true;
+
+
+        if (current_quest_controller != null) {
+            for (int i = 0; i < current_quest_controller.objects_to_enable.Count; i++) {
+                current_quest_controller.objects_to_enable[i].SetActive(true);
+            }
+            for (int i = 0; i < current_quest_controller.objects_to_disable.Count; i++) {
+                current_quest_controller.objects_to_disable[i].SetActive(false);
+            }
+        }
 
         // ********** Conditional ********** //
         // Moves the player in his starting position //
@@ -103,6 +113,8 @@ public class DialogueController : MonoBehaviour {
 
             StartCoroutine(MovePlayerToStartTheGame());
         }
+
+        current_dialogue = null;
     }
 
     private IEnumerator MovePlayerToStartTheGame() {
@@ -113,14 +125,19 @@ public class DialogueController : MonoBehaviour {
             GameObject.FindGameObjectWithTag("player_starting_position").transform.position;
     }
 
+    public void SetCurrentDialogue(QuestController quest_controller) {
+        current_quest_controller = quest_controller;
+        current_dialogue = quest_controller.quest_to_complete.dialogue;
+        PlayDialogue();
+    }
+
     public void SetCurrentDialogue(Dialogue dialogue) {
+        current_quest_controller = null;
         current_dialogue = dialogue;
         PlayDialogue();
     }
 
     public void PlayDialogue() {
-        EndDialogue();
-
         LoadPassage(current_passage_index);
         current_passage_index++;
     }

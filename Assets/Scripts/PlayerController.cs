@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour {
 
     private void Update() {
         if (is_within_interactable) {
-            if (Input.GetKeyDown(KeyCode.E) && can_move) {
+            if (Input.GetKeyDown(KeyCode.E) &&
+                can_move &&
+                current_interactable != null) {
+
                 current_interactable.Action();
             }
         }
@@ -67,11 +70,13 @@ public class PlayerController : MonoBehaviour {
                 verticalMovement * (movement_speed), 0));
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("interactable")) {
             is_within_interactable = true;
 
             current_interactable = collision.gameObject.GetComponent<IInteractable>();
+        } else {
+            current_interactable = null;
         }
     }
 

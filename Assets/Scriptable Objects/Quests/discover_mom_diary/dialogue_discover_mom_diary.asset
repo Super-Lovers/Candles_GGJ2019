@@ -27,14 +27,14 @@ MonoBehaviour:
     passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}
     passage_text: Interesting, a diary? It's mom's diary.. I wonder what it says..
   - title: 
-    character: 0
+    character: 2
     character_portrait: {fileID: 21300000, guid: 73c584ffd2ae2fb46aaeb81ba59dd3f3,
       type: 3}
     passage_box: {fileID: 21300000, guid: 3f0fefa435ff53a42a1cbec77fe08c6b, type: 3}
     passage_text: '"I woke up this morning and couldn''t find my golden necklace my
       father gave to me before he passed away.."'
   - title: 
-    character: 0
+    character: 2
     character_portrait: {fileID: 21300000, guid: 73c584ffd2ae2fb46aaeb81ba59dd3f3,
       type: 3}
     passage_box: {fileID: 21300000, guid: 3f0fefa435ff53a42a1cbec77fe08c6b, type: 3}

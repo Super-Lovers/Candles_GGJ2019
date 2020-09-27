@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6814622273780523746}
   - component: {fileID: 6814622273780523747}
   - component: {fileID: 6814622273780523293}
-  - component: {fileID: 6814622273780523292}
   - component: {fileID: 1586334732163697544}
+  - component: {fileID: 1912135820556207684}
   m_Layer: 0
   m_Name: fireplace
-  m_TagString: Untagged
+  m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,22 +125,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.72, y: 2.26}
   m_Direction: 0
---- !u!114 &6814622273780523292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6814622273780523745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f3f7b36a05ca541a53d2d1d55dbf35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_portrait: {fileID: 0}
-  passage_box: {fileID: 0}
-  passage_text: {fileID: 0}
-  current_dialogue: {fileID: 0}
 --- !u!114 &1586334732163697544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +139,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   human_realm_sprite: {fileID: 21300000, guid: faa0ead097124d74aa558b2c8a0713fc, type: 3}
   ghost_realm_sprite: {fileID: 21300000, guid: 0b17e5258c2058247b5335c33bb07162, type: 3}
+--- !u!114 &1912135820556207684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814622273780523745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d2e4bcbf7013849861e65dbe5fd06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest_to_complete: {fileID: 0}
+  required_realm: 1
+  required_quests: []
+  objects_to_enable: []
+  objects_to_disable: []

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94346fc2c4ddb7b4f8bb95ccc10d5b9e, type: 3}
+  m_Name: dialogue_told_mom_about_fire
+  m_EditorClassIdentifier: 
+  passages:
+  - title: 
+    character: 0
+    character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
+      type: 3}
+    passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}
+    passage_text: Mother! its terrible, a fire started in the living room, please
+      go there now!
+  - title: 
+    character: 2
+    character_portrait: {fileID: 21300000, guid: 6511dfa400fc45843a4c7ded27315cfe,
+      type: 3}
+    passage_box: {fileID: 21300000, guid: 3f0fefa435ff53a42a1cbec77fe08c6b, type: 3}
+    passage_text: Oh my... what have you done! I will go there right away and you
+      don't cause any more trouble or else..

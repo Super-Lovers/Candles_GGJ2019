@@ -137,8 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quest_to_complete: {fileID: 11400000, guid: f8340833b6c18084da49d4d00a4ec4eb, type: 2}
+  required_realm: 1
   required_quests:
   - {fileID: 11400000, guid: 1662453dd861fc04fbac2b14c761c54f, type: 2}
+  objects_to_enable: []
+  objects_to_disable: []
 --- !u!114 &8120884077658221496
 MonoBehaviour:
   m_ObjectHideFlags: 0

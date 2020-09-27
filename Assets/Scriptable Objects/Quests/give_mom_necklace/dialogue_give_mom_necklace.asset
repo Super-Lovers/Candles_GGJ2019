@@ -30,5 +30,4 @@ MonoBehaviour:
     character_portrait: {fileID: 21300000, guid: 73c584ffd2ae2fb46aaeb81ba59dd3f3,
       type: 3}
     passage_box: {fileID: 21300000, guid: 3f0fefa435ff53a42a1cbec77fe08c6b, type: 3}
-    passage_text: I'll convince your dad to let you go outside for today since you
-      really want to!
+    passage_text: I'll let you out of your room for today, so spend that time productively!

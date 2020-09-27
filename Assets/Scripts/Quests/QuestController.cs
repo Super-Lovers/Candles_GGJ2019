@@ -2,8 +2,9 @@
 using UnityEngine;
 
 public class QuestController : IInteractable {
-    [SerializeField]
     public Quest quest_to_complete;
+    [SerializeField]
+    private Realm required_realm;
 
     [Space(10)]
     public List<Quest> required_quests = new List<Quest>();
@@ -15,17 +16,19 @@ public class QuestController : IInteractable {
     // Dependancies
     private QuestsModel quests_model;
     private DialogueController dialogue_controller;
+    private RealmModel realm_model;
 
     private void Start() {
         quests_model = FindObjectOfType<QuestsModel>();
         dialogue_controller = FindObjectOfType<DialogueController>();
+        realm_model = FindObjectOfType<RealmModel>();
     }
 
     public override void Action() {
         if (!AreQuestsCompleted()) { return; }
+        if (required_realm != realm_model.GetCurrentRealm()) { return; }
 
-        dialogue_controller.SetCurrentDialogue(quest_to_complete.dialogue);
-        dialogue_controller.PlayDialogue();
+        dialogue_controller.SetCurrentDialogue(this);
 
         CompleteQuest();
     }
@@ -46,12 +49,5 @@ public class QuestController : IInteractable {
         if (quests_model.IsQuestCompleted(quest_to_complete)) { return; }
 
         quests_model.CompleteQuest(quest_to_complete);
-
-        for (int i = 0; i < objects_to_enable.Count; i++) {
-            objects_to_enable[i].SetActive(true);
-        }
-        for (int i = 0; i < objects_to_disable.Count; i++) {
-            objects_to_disable[i].SetActive(false);
-        }
     }
 }

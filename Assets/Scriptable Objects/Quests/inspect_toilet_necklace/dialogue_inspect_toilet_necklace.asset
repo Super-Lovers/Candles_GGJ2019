@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passages:
   - title: 
-    character: 2
+    character: 0
     character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
       type: 3}
     passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}

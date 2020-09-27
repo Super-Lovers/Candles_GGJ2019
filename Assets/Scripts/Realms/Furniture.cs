@@ -17,6 +17,8 @@ public class Furniture : MonoBehaviour
         if (!realm_model.furniture.Contains(this)) {
             realm_model.furniture.Add(this);
         }
+
+        Turn(realm_model.GetCurrentRealm());
     }
 
     public void Turn(Realm realm) {
