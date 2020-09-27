@@ -2,6 +2,7 @@
 
 public class Teleporter : MonoBehaviour {
     private GameObject player;
+    private Animator player_animator;
     private FadeController fade_transitioner;
 
     [SerializeField]
@@ -12,6 +13,7 @@ public class Teleporter : MonoBehaviour {
     private void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
+        player_animator = player.GetComponent<Animator>();
         fade_transitioner = FindObjectOfType<FadeController>();
     }
 
@@ -22,6 +24,7 @@ public class Teleporter : MonoBehaviour {
         fade_transitioner.StartFade();
 
         Invoke("Teleport", 0.5f);
+        player_animator.SetBool("Is Player Idle", true);
     }
 
     private void Teleport() {

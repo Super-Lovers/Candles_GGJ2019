@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour {
                 current_interactable.Action();
             }
         }
+
+        if (can_move == false && animator.GetBool("Is Player Idle") == false) {
+            animator.SetBool("Is Player Idle", true);
+        }
     }
 
     void FixedUpdate () {
@@ -85,6 +89,14 @@ public class PlayerController : MonoBehaviour {
             is_within_interactable = false;
 
             current_interactable = null;
+        }
+    }
+
+    public void Turn(Realm realm) {
+        if (realm == Realm.Human) {
+            animator.runtimeAnimatorController = human_animator;
+        } else if (realm == Realm.Ghost) {
+            animator.runtimeAnimatorController = ghost_animator;
         }
     }
 }

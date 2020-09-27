@@ -16,8 +16,10 @@ public class RealmModel : MonoBehaviour {
 
     // Dependancies
     private QuestsModel quest_model;
+    private PlayerController player;
 
     private void Start() {
+        player = FindObjectOfType<PlayerController>();
         quest_model = FindObjectOfType<QuestsModel>();
     }
 
@@ -43,6 +45,8 @@ public class RealmModel : MonoBehaviour {
         }
 
         current_realm = new_realm;
+
+        player.Turn(current_realm);
 
         for (int i = 0; i < quest_model.state_controllers.Count; i++) {
             quest_model.state_controllers[i].UpdateState();
