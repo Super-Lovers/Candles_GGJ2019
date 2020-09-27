@@ -8,16 +8,17 @@ public class QuestController : IInteractable {
     [Space(10)]
     public List<Quest> required_quests = new List<Quest>();
 
+    [Space(10)]
+    public List<GameObject> objects_to_enable = new List<GameObject>();
+    public List<GameObject> objects_to_disable = new List<GameObject>();
+
     // Dependancies
     private QuestsModel quests_model;
     private DialogueController dialogue_controller;
 
-    private StateController state_controller;
-
     private void Start() {
         quests_model = FindObjectOfType<QuestsModel>();
         dialogue_controller = FindObjectOfType<DialogueController>();
-        state_controller = GetComponent<StateController>();
     }
 
     public override void Action() {
@@ -45,5 +46,12 @@ public class QuestController : IInteractable {
         if (quests_model.IsQuestCompleted(quest_to_complete)) { return; }
 
         quests_model.CompleteQuest(quest_to_complete);
+
+        for (int i = 0; i < objects_to_enable.Count; i++) {
+            objects_to_enable[i].SetActive(true);
+        }
+        for (int i = 0; i < objects_to_disable.Count; i++) {
+            objects_to_disable[i].SetActive(false);
+        }
     }
 }
