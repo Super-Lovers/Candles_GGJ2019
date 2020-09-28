@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour {
     public bool can_move;
 
     [SerializeField]
-    private RuntimeAnimatorController human_animator;
+    private RuntimeAnimatorController human_animator = default;
     [SerializeField]
-    private RuntimeAnimatorController ghost_animator;
+    private RuntimeAnimatorController ghost_animator = default;
     public Animator animator;
 
     // Interaction parameters

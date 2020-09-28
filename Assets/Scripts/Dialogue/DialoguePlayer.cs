@@ -3,7 +3,7 @@
 public class DialoguePlayer : IInteractable
 {
     [SerializeField]
-    private Dialogue dialogue_to_play;
+    private Dialogue dialogue_to_play = default;
 
     // Dependancies
     private DialogueController dialogue_controller;

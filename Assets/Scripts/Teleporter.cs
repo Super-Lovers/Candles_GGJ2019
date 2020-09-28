@@ -6,7 +6,7 @@ public class Teleporter : MonoBehaviour {
     private FadeController fade_transitioner;
 
     [SerializeField]
-    private GameObject new_position;
+    private GameObject new_position = default;
 
     private bool is_teleporting = false;
 

@@ -3,9 +3,9 @@
 public class Furniture : MonoBehaviour
 {
     [SerializeField]
-    private Sprite human_realm_sprite;
+    private Sprite human_realm_sprite = default;
     [SerializeField]
-    private Sprite ghost_realm_sprite;
+    private Sprite ghost_realm_sprite = default;
 
     private RealmModel realm_model;
     private SpriteRenderer sprite_renderer;

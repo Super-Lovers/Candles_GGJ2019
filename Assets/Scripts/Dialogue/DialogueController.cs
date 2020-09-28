@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour {
     [SerializeField]
-    private Image character_portrait;
+    private Image character_portrait = default;
     [SerializeField]
-    private Image passage_box;
+    private Image passage_box = default;
     [SerializeField]
-    private TextMeshProUGUI passage_text;
+    private TextMeshProUGUI passage_text = default;
 
     [Space(10)]
     [SerializeField]

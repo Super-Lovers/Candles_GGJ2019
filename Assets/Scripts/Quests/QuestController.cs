@@ -4,7 +4,7 @@ using UnityEngine;
 public class QuestController : IInteractable {
     public Quest quest_to_complete;
     [SerializeField]
-    private Realm required_realm;
+    private Realm required_realm = default;
 
     [Space(10)]
     public List<Quest> required_quests = new List<Quest>();

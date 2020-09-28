@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6671842775750584970}
   - component: {fileID: 6671842775750584971}
   - component: {fileID: 6671842775750584972}
-  - component: {fileID: 6671842775750584973}
   - component: {fileID: 3159779481388846072}
   m_Layer: 0
   m_Name: large_bed
@@ -135,22 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.34, y: 2.86}
   m_EdgeRadius: 0
---- !u!114 &6671842775750584973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6671842775750584969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f3f7b36a05ca541a53d2d1d55dbf35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character_portrait: {fileID: 0}
-  passage_box: {fileID: 0}
-  passage_text: {fileID: 0}
-  current_dialogue: {fileID: 0}
 --- !u!114 &3159779481388846072
 MonoBehaviour:
   m_ObjectHideFlags: 0
