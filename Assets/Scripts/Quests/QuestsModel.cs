@@ -6,6 +6,7 @@ public class QuestsModel : MonoBehaviour {
     private List<Quest> quests = new List<Quest>();
     private List<Quest> completed_quests = new List<Quest>();
 
+    [NonSerialized]
     public List<StateController> state_controllers = new List<StateController>();
 
     public bool IsQuestCompleted(Quest quest) {

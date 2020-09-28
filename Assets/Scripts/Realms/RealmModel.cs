@@ -5,7 +5,8 @@ using UnityEngine;
 public class RealmModel : MonoBehaviour {
     private Realm current_realm;
 
-    private int realm_countdown = 10;
+    [SerializeField]
+    private int realm_countdown = 25;
     private float time_passed = 0;
 
     [NonSerialized]
