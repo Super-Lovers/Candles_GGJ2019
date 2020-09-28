@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7842320958742218833}
   - component: {fileID: 5990899907329917241}
   m_Layer: 0
-  m_Name: vase
+  m_Name: vase_brown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: b43254c067b0db242a0b619225a317e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
