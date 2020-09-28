@@ -10,7 +10,7 @@ public class StateController : MonoBehaviour
 
     // Components
     private SpriteRenderer[] sprite_renderers;
-    private BoxCollider2D collider;
+    private BoxCollider2D box_collider;
 
     [SerializeField]
     private List<RealmState> realm_states = new List<RealmState>();
@@ -21,7 +21,7 @@ public class StateController : MonoBehaviour
         realm_model = FindObjectOfType<RealmModel>();
 
         sprite_renderers = GetComponentsInChildren<SpriteRenderer>();
-        collider = GetComponent<BoxCollider2D>();
+        box_collider = GetComponent<BoxCollider2D>();
 
         if (!quests_model.state_controllers.Contains(this)) {
             quests_model.state_controllers.Add(this);
@@ -42,12 +42,12 @@ public class StateController : MonoBehaviour
                     for (int j = 0; j < sprite_renderers.Length; j++) {
                         sprite_renderers[j].color = new Color(1, 1, 1, 0);
                     }
-                    collider.enabled = false;
+                    box_collider.enabled = false;
                 } else {
                     for (int j = 0; j < sprite_renderers.Length; j++) {
                         sprite_renderers[j].color = new Color(1, 1, 1, 1);
                     }
-                    collider.enabled = true;
+                    box_collider.enabled = true;
                 }
 
                 break;
