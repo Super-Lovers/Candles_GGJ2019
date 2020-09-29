@@ -33,8 +33,8 @@ public class DialogueController : MonoBehaviour {
     private void Start() {
         player = FindObjectOfType<PlayerController>();
 
-        //LoadPassage(current_passage_index);
-        //current_passage_index++;
+        LoadPassage(current_passage_index);
+        current_passage_index++;
     }
 
     private void Update() {

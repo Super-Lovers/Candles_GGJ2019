@@ -30,7 +30,7 @@ public class StateController : MonoBehaviour
 
     public void UpdateState() {
         // GUARDS
-        if (quest_controller != null && !quest_controller.AreQuestsCompleted()) { return; }
+        //if (quest_controller != null && !quest_controller.AreQuestsCompleted()) { return; }
 
         for (int i = 0; i < realm_states.Count; i++) {
             if (realm_model.GetCurrentRealm() == realm_states[i].realm) {

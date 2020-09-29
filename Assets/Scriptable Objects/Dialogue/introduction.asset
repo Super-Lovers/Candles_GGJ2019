@@ -14,63 +14,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passages:
   - title: Dad
-    character_name: 
+    character: 1
     character_portrait: {fileID: 21300000, guid: de4d52cc675c3734995a798a7dbcfc1f,
       type: 3}
     passage_box: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
     passage_text: Well Jane, have you finished your homework for today?
   - title: Jane
-    character_name: Jane
+    character: 0
     character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
       type: 3}
     passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}
     passage_text: No, dad.. I went out after school with some friends.
   - title: Dad
-    character_name: 
+    character: 1
     character_portrait: {fileID: 21300000, guid: 905d4aee1f4b5044cbed05b8e2071f89,
       type: 3}
     passage_box: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
     passage_text: ".. your friends are not like you Jane, you\u2019re wasting time
       that you could use for studying!"
   - title: Dad
-    character_name: 
+    character: 1
     character_portrait: {fileID: 21300000, guid: 905d4aee1f4b5044cbed05b8e2071f89,
       type: 3}
     passage_box: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
     passage_text: "Otherwise, you\u2019ll never achieve your dream of becoming a doctor."
   - title: Jane
-    character_name: Jane
+    character: 0
     character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
       type: 3}
     passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}
     passage_text: Yes father, I am aware..
   - title: Mom
-    character_name: 
+    character: 2
     character_portrait: {fileID: 21300000, guid: 73c584ffd2ae2fb46aaeb81ba59dd3f3,
       type: 3}
     passage_box: {fileID: 21300000, guid: 3f0fefa435ff53a42a1cbec77fe08c6b, type: 3}
     passage_text: Oh light up darling, dad only wants the best for you.
   - title: Jane
-    character_name: Jane
+    character: 0
     character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
       type: 3}
     passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}
     passage_text: The best for me.. or the best for you two?
   - title: Dad
-    character_name: 
+    character: 1
     character_portrait: {fileID: 21300000, guid: 905d4aee1f4b5044cbed05b8e2071f89,
       type: 3}
     passage_box: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
     passage_text: I will NOT tolerate such insolence in MY house! Go to your room
       right now young lady!
   - title: Jane
-    character_name: Jane
+    character: 0
     character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
       type: 3}
     passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}
     passage_text: Hmpf!
   - title: Jane
-    character_name: Jane
+    character: 0
     character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
       type: 3}
     passage_box: {fileID: 21300000, guid: b401b7086c61f0740bf218ece0429d93, type: 3}

@@ -8139,7 +8139,8 @@ MonoBehaviour:
   required_realm: 0
   required_quests:
   - {fileID: 11400000, guid: 75dc1ad301fb353479d9294983409516, type: 2}
-  objects_to_enable: []
+  objects_to_enable:
+  - {fileID: 174360147}
   objects_to_disable:
   - {fileID: 1140335272}
   - {fileID: 330850013}
@@ -8330,13 +8331,14 @@ GameObject:
   - component: {fileID: 174360149}
   - component: {fileID: 174360151}
   - component: {fileID: 174360150}
+  - component: {fileID: 174360152}
   m_Layer: 0
   m_Name: mother_at_key
   m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &174360148
 Transform:
   m_ObjectHideFlags: 0
@@ -8450,6 +8452,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03, y: 1.69}
   m_EdgeRadius: 0
+--- !u!114 &174360152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174360147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac1560ad99ad449a1b8eb0da2895fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realm_states:
+  - realm: 0
+    is_enabled: 1
+    is_active: 1
+  - realm: 1
+    is_enabled: 0
+    is_active: 0
 --- !u!4 &186019390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6930596339281730558, guid: 67e92ee75d81f9941b5dd06a51391757,
@@ -9164,6 +9185,7 @@ GameObject:
   - component: {fileID: 331337086}
   - component: {fileID: 331337088}
   - component: {fileID: 331337087}
+  - component: {fileID: 331337089}
   m_Layer: 0
   m_Name: mother_at_living_room
   m_TagString: Untagged
@@ -9260,6 +9282,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &331337089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331337085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac1560ad99ad449a1b8eb0da2895fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realm_states:
+  - realm: 0
+    is_enabled: 1
+    is_active: 1
+  - realm: 1
+    is_enabled: 0
+    is_active: 0
 --- !u!1 &332508430
 GameObject:
   m_ObjectHideFlags: 0
@@ -26845,6 +26886,7 @@ GameObject:
   - component: {fileID: 549885273}
   - component: {fileID: 549885275}
   - component: {fileID: 549885274}
+  - component: {fileID: 549885276}
   m_Layer: 0
   m_Name: father
   m_TagString: interactable
@@ -26955,6 +26997,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03, y: 1.69}
   m_EdgeRadius: 0
+--- !u!114 &549885276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549885271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac1560ad99ad449a1b8eb0da2895fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realm_states:
+  - realm: 0
+    is_enabled: 1
+    is_active: 1
+  - realm: 1
+    is_enabled: 0
+    is_active: 0
 --- !u!1001 &567512447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30132,7 +30193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994964541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -126.709, y: -1.298, z: 0}
+  m_LocalPosition: {x: -126.709, y: -1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1556553778}
@@ -39292,6 +39353,7 @@ PrefabInstance:
       objectReference: {fileID: 1134518209}
     m_RemovedComponents:
     - {fileID: 6814622273780523292, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
+    - {fileID: 6814622273780523293, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
 --- !u!4 &1134518208 stripped
 Transform:
@@ -39887,6 +39949,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6814622273780523292, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
     - {fileID: 1912135820556207684, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
+    - {fileID: 6814622273780523293, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
 --- !u!4 &1184233381 stripped
 Transform:
@@ -39911,12 +39974,11 @@ GameObject:
   - component: {fileID: 1190908951}
   - component: {fileID: 1190908953}
   - component: {fileID: 1190908955}
-  - component: {fileID: 1190908952}
   - component: {fileID: 1190908956}
   - component: {fileID: 1190908954}
   m_Layer: 0
   m_Name: phone
-  m_TagString: Untagged
+  m_TagString: interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39929,38 +39991,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190908950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 106.310005, y: 14.382, z: 0}
+  m_LocalPosition: {x: 106.521, y: 14.382, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 641545774}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1190908952
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190908950}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.525, y: 0.37}
-    newSize: {x: 1.92, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.17, y: 2.56}
-  m_EdgeRadius: 0
 --- !u!212 &1190908953
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45253,6 +45289,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212780647934425068, guid: 78364377de3af8c4f9e70e84555dfc58,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78364377de3af8c4f9e70e84555dfc58, type: 3}
 --- !u!4 &1488145652 stripped
@@ -45525,7 +45566,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000017881393, y: -0.08}
+  m_Offset: {x: -0.00000017881393, y: -2.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -45596,7 +45637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556553774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 129.272, y: 19.22, z: -0.123046875}
+  m_LocalPosition: {x: 129.272, y: 19.51, z: -0.123046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 994964542}
@@ -50935,7 +50976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827397558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 127.1, y: 34.2, z: 0}
+  m_LocalPosition: {x: 16.7, y: -4.81, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -51229,6 +51270,7 @@ GameObject:
   - component: {fileID: 1912475240}
   - component: {fileID: 1912475243}
   - component: {fileID: 1912475242}
+  - component: {fileID: 1912475241}
   m_Layer: 0
   m_Name: father_at_living_room
   m_TagString: Untagged
@@ -51251,6 +51293,25 @@ Transform:
   m_Father: {fileID: 1019974175}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1912475241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912475239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac1560ad99ad449a1b8eb0da2895fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realm_states:
+  - realm: 0
+    is_enabled: 1
+    is_active: 1
+  - realm: 1
+    is_enabled: 0
+    is_active: 0
 --- !u!61 &1912475242
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54025,7 +54086,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6f89ce0d53226f84bb0e856538dd232a,
         type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1393979563804468923, guid: 4647fc9095bf922498a69ff6ee7c1398, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4647fc9095bf922498a69ff6ee7c1398, type: 3}
 --- !u!1001 &1419489257081118271
 PrefabInstance:
@@ -54757,6 +54819,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6814622273780523292, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
     - {fileID: 1912135820556207684, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
+    - {fileID: 6814622273780523293, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67d2b07231c0bcd439b0c55a31d77269, type: 3}
 --- !u!1001 &6844305422862713824
 PrefabInstance:
