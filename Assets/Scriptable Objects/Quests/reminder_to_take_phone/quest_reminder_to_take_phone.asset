@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d997eda6378e54b991bf687101d3ab, type: 3}
+  m_Name: quest_reminder_to_take_phone
+  m_EditorClassIdentifier: 
+  title: reminder_to_take_phone
+  is_completed: 0
+  dialogue: {fileID: 11400000, guid: c290ae211fe150e4d84757cb7d81cfcd, type: 2}

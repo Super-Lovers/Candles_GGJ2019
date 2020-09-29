@@ -15,4 +15,8 @@ public class DialoguePlayer : IInteractable
     public override void Action() {
         dialogue_controller.SetCurrentDialogue(dialogue_to_play);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        dialogue_controller.SetCurrentDialogue(dialogue_to_play);
+    }
 }

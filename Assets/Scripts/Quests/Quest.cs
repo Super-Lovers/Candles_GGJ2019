@@ -8,8 +8,4 @@ public class Quest : ScriptableObject {
 
     [Space(10)]
     public Dialogue dialogue;
-
-    [Space(10)]
-    public List<GameObject> objects_to_enable = new List<GameObject>();
-    public List<GameObject> objects_to_disable = new List<GameObject>();
 }

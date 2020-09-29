@@ -50,4 +50,8 @@ public class QuestController : IInteractable {
 
         quests_model.CompleteQuest(quest_to_complete);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Action();
+    }
 }

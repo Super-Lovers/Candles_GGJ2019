@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94346fc2c4ddb7b4f8bb95ccc10d5b9e, type: 3}
+  m_Name: dialogue_father_at_office
+  m_EditorClassIdentifier: 
+  passages:
+  - title: 
+    character: 1
+    character_portrait: {fileID: 21300000, guid: 905d4aee1f4b5044cbed05b8e2071f89,
+      type: 3}
+    passage_box: {fileID: 21300000, guid: 102b300fe45e6e841b869e12f94d7adf, type: 3}
+    passage_text: Yes Jane? I am occupied at the moment, please don't disturb me in
+      my office.

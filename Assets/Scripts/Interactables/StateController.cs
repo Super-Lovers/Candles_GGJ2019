@@ -42,12 +42,16 @@ public class StateController : MonoBehaviour
                     for (int j = 0; j < sprite_renderers.Length; j++) {
                         sprite_renderers[j].color = new Color(1, 1, 1, 0);
                     }
-                    box_collider.enabled = false;
+                    if (box_collider != null) {
+                        box_collider.enabled = false;
+                    }
                 } else {
                     for (int j = 0; j < sprite_renderers.Length; j++) {
                         sprite_renderers[j].color = new Color(1, 1, 1, 1);
                     }
-                    box_collider.enabled = true;
+                    if (box_collider != null) {
+                        box_collider.enabled = true;
+                    }
                 }
 
                 break;
