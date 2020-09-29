@@ -9312,7 +9312,6 @@ MonoBehaviour:
   objects_to_enable:
   - {fileID: 1585657373}
   objects_to_disable:
-  - {fileID: 1656475782}
   - {fileID: 332508430}
 --- !u!61 &332508433
 BoxCollider2D:
@@ -28383,7 +28382,6 @@ Transform:
   - {fileID: 719822971}
   - {fileID: 796400937}
   - {fileID: 1190908951}
-  - {fileID: 1251907717}
   - {fileID: 934284508}
   - {fileID: 199438004}
   - {fileID: 2047096482}
@@ -28692,7 +28690,7 @@ PrefabInstance:
     - target: {fileID: 6372489667808185238, guid: d34a360f25870644ea4dbd1dd22dd19e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.58
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 212687518664569508, guid: d34a360f25870644ea4dbd1dd22dd19e,
         type: 3}
@@ -29499,7 +29497,7 @@ PrefabInstance:
     - target: {fileID: 7891376670234267851, guid: e32a999bcec84054db20e75ff058f20a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7891376670234267851, guid: e32a999bcec84054db20e75ff058f20a,
         type: 3}
@@ -29631,7 +29629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c92b7ffdda8524ca54978aa9bc32c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realm_countdown: 10
+  realm_countdown: 15
   realm_settings:
   - title: Human
     realm: 0
@@ -29909,7 +29907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4324440354499604, guid: 6296c5d17010b3e4d8111332b1adb482, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4324440354499604, guid: 6296c5d17010b3e4d8111332b1adb482, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -38156,7 +38154,7 @@ PrefabInstance:
     - target: {fileID: 4714602001775104157, guid: dbcc173e3b057f447acd17a2420ea97d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4714602001775104157, guid: dbcc173e3b057f447acd17a2420ea97d,
         type: 3}
@@ -38927,6 +38925,7 @@ GameObject:
   - component: {fileID: 1124793491}
   - component: {fileID: 1124793492}
   - component: {fileID: 1124793493}
+  - component: {fileID: 1124793494}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -39022,6 +39021,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &1124793494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124793490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac1560ad99ad449a1b8eb0da2895fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  realm_states:
+  - realm: 0
+    is_enabled: 1
+    is_active: 1
+  - realm: 1
+    is_enabled: 0
+    is_active: 0
 --- !u!1001 &1129957482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40010,6 +40028,7 @@ MonoBehaviour:
   objects_to_enable: []
   objects_to_disable:
   - {fileID: 456264445}
+  - {fileID: 1656475782}
   - {fileID: 1190908950}
 --- !u!70 &1190908955
 CapsuleCollider2D:
@@ -40260,63 +40279,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 293744837}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1251907716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1251907717}
-  - component: {fileID: 1251907718}
-  m_Layer: 0
-  m_Name: phone_blockade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1251907717
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251907716}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 108.15, y: 15.866, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 641545774}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1251907718
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251907716}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &1257405820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50411,7 +50373,7 @@ PrefabInstance:
     - target: {fileID: 3299164894822915058, guid: 0ad2a7fa167aae241b4aa5dd6128f204,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3299164894822915058, guid: 0ad2a7fa167aae241b4aa5dd6128f204,
         type: 3}
