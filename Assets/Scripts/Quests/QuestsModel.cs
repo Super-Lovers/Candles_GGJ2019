@@ -16,7 +16,7 @@ public class QuestsModel : MonoBehaviour {
     public void CompleteQuest(Quest quest) {
         completed_quests.Add(quest);
 
-        Debug.Log("Quest <color=yellow>" + quest.title + "</color> has been completed!");
+        if (App.debugging) { Debug.Log("Quest <color=yellow>" + quest.title + "</color> has been completed!"); }
     }
 
     public void AddQuest(Quest quest) {

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: quest_unlock_protagonist_door
   m_EditorClassIdentifier: 
   title: quest_unlock_protagonist_door
-  is_completed: 0
+  is_completed: 1
   dialogue: {fileID: 11400000, guid: f7d49bed41a81664a95683a559fabdb9, type: 2}

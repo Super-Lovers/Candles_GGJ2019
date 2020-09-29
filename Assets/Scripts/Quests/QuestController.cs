@@ -22,6 +22,10 @@ public class QuestController : IInteractable {
         quests_model = FindObjectOfType<QuestsModel>();
         dialogue_controller = FindObjectOfType<DialogueController>();
         realm_model = FindObjectOfType<RealmModel>();
+
+        if (quest_to_complete.is_completed) {
+            CompleteQuest();
+        }
     }
 
     public override void Action() {

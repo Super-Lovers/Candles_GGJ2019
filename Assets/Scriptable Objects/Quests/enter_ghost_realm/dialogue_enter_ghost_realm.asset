@@ -18,7 +18,8 @@ MonoBehaviour:
     character_portrait: {fileID: 21300000, guid: 1e131541ff33d5942986bbc91b525319,
       type: 3}
     passage_box: {fileID: 21300000, guid: 3f0fefa435ff53a42a1cbec77fe08c6b, type: 3}
-    passage_text: YYoouu'vvee  eenntteerreedd  tthhee  gghhoossttllyy  rreeaallmm....
+    passage_text: You're not welcome here, little girl. Tread carefully or I will
+      consume your soul..
   - title: 
     character: 0
     character_portrait: {fileID: 21300000, guid: 4f5d6811e82f0b74693b9e230d6843b0,
