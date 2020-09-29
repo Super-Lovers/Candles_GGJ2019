@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour {
@@ -22,6 +23,12 @@ public class DialogueController : MonoBehaviour {
     // Dependancies
     private PlayerController player;
     private QuestController current_quest_controller;
+
+    //====================
+    // End-game specific reference
+    //====================
+    private bool is_endgame = false;
+    //====================
 
     private void Start() {
         player = FindObjectOfType<PlayerController>();
@@ -115,6 +122,10 @@ public class DialogueController : MonoBehaviour {
         }
 
         current_dialogue = null;
+
+        if (is_endgame) {
+            SceneManager.LoadScene("main_menu");
+        }
     }
 
     private IEnumerator MovePlayerToStartTheGame() {
@@ -132,6 +143,14 @@ public class DialogueController : MonoBehaviour {
     }
 
     public void SetCurrentDialogue(Dialogue dialogue) {
+        current_quest_controller = null;
+        current_dialogue = dialogue;
+        PlayDialogue();
+    }
+
+    public void SetCurrentDialogue(Dialogue dialogue, bool _is_endgame) {
+        is_endgame = _is_endgame;
+
         current_quest_controller = null;
         current_dialogue = dialogue;
         PlayDialogue();
